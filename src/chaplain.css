@@ -54,3 +54,60 @@ tr.sdet td{background:#f8fafc;white-space:normal}
 @media(max-width:1520px){.asof{display:none}}
 @media(max-width:1280px){.tabs span{display:none}.tabs button{padding:8px 10px}.tiles.t8{grid-template-columns:repeat(4,1fr)}.overview.o3{grid-template-columns:1fr}}
 @media(max-width:1000px){.tiles.t8{grid-template-columns:repeat(2,1fr)}.kpis.k6{grid-template-columns:repeat(2,1fr)}}
+
+/* Header: tab labels always visible, wrap instead of scrolling off (Evaluations was cut off) */
+header.top .bar{height:auto;min-height:62px;justify-content:space-between;flex-wrap:wrap}
+header.top nav.tabs{
+  display:flex;flex-wrap:wrap;overflow:visible;scrollbar-width:none;
+  gap:2px;padding-top:0;padding-bottom:10px;flex:none;width:100%;max-width:1360px;
+}
+header.top nav.tabs button{white-space:nowrap;padding:7px 10px;font-size:.84rem}
+header.top nav.tabs span{display:inline !important}
+@media(max-width:1520px){header.top .asof{display:none}}
+@media(max-width:1280px){
+  header.top nav.tabs span{display:inline !important}
+  header.top nav.tabs button{padding:6px 8px;font-size:.8rem}
+  .tiles.t8{grid-template-columns:repeat(4,1fr)}
+  .overview.o3{grid-template-columns:1fr}
+}
+@media(max-width:1000px){.tiles.t8{grid-template-columns:repeat(2,1fr)}.kpis.k6{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:1250px){header.top nav.tabs span{display:inline !important}}
+
+/* Roster: fit the page, no horizontal scroll */
+#page-roster .tablewrap,
+#page-roster .tablewrap.scrolly{overflow-x:hidden;max-width:100%}
+#page-roster table.grid.roster{table-layout:fixed;width:100%;font-size:.8rem}
+#page-roster table.grid.roster th,
+#page-roster table.grid.roster td{white-space:normal;overflow-wrap:anywhere;word-break:break-word;padding:6px 7px;min-width:0}
+#page-roster table.grid.roster th{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#page-roster table.grid.roster .col-view{width:72px;white-space:nowrap}
+#page-roster table.grid.roster .col-rank{width:56px}
+#page-roster table.grid.roster .col-mos{width:54px}
+#page-roster table.grid.roster .col-aft{width:78px}
+#page-roster table.grid.roster .col-wpn{width:108px}
+#page-roster table.grid.roster td.namec{font-size:.82rem}
+#page-roster table.grid.roster td.wrapc{min-width:0;max-width:none}
+#page-roster tr.clickrow{cursor:pointer}
+#page-roster tr.clickrow:hover td{background:#eef4ff}
+#page-roster tr.clickrow.sel td{background:#eaf1fe}
+.viewbtn{padding:4px 10px !important;font-size:.76rem !important;gap:4px !important}
+.rohint{margin:0 0 10px}
+.caret{display:inline-block;width:10px;color:var(--soft);font-size:.7rem;margin-right:4px}
+
+/* Soldier picker + full profile */
+.picker{position:relative}
+.picker input[type=search]{width:100%}
+.picker-list{
+  position:absolute;left:0;right:0;top:100%;z-index:20;max-height:260px;overflow-y:auto;
+  background:var(--panel);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);margin-top:4px;
+}
+.picker-list button{display:block;width:100%;text-align:left;border:0;background:none;padding:8px 12px;font:inherit;font-size:.9rem;cursor:pointer}
+.picker-list button:hover,.picker-list button:focus{background:#eaf1fe;color:var(--accent2)}
+.picker-list .empty{padding:10px 12px;color:var(--muted);font-size:.86rem}
+.profile{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin-bottom:16px;box-shadow:var(--shadow)}
+.profile-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:12px}
+.profile-head h2{margin:0;font-size:1.35rem;letter-spacing:-.3px}
+.flagrow{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 0}
+.profile .detgrid{margin-top:8px}
+.profile-close{margin-left:auto}
+.filters .btn-clear{align-self:flex-end;margin-bottom:1px}

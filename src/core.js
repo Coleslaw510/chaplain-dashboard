@@ -4,7 +4,7 @@
   CH.$ = $;
   CH.mods = {};
   CH.charts = {};
-  CH.state = { bn: "All", uic: "All", rank: "All", q: "", window: "12", aftView: "all", wpnView: "all", evalView: "all", open: "", sort: {}, pageSort: {} };
+  CH.state = { bn: "All", uic: "All", rank: "All", q: "", window: "12", aftView: "all", wpnView: "all", evalView: "all", aftFilter: "All", etsWin: "All", wpnFilter: "All", selected: "", open: "", sort: {}, pageSort: {} };
   CH.esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
   CH.dateText = function (d) { d = CH.parseDate(d); return d ? ("0" + d.getDate()).slice(-2) + " " + CH.MONS[d.getMonth()] + " " + d.getFullYear() : "—"; };
   CH.num = function (v) { return Math.round(v).toLocaleString("en-US"); };
@@ -82,8 +82,22 @@
       CH.sel("bn", "Battalion", "All battalions", o.bns) +
       CH.sel("uic", "UIC", "All UICs", o.uics) +
       CH.sel("rank", "Rank", "All ranks", o.ranks) +
-      '<label class="grow">Search<input type="search" data-st="q" value="' + CH.esc(CH.state.q) + '" placeholder="Name, MOS, email, phone, religion…"></label>' +
+      '<label class="grow">Search<input type="search" id="filterSearch" data-st="q" value="' + CH.esc(CH.state.q) + '" placeholder="Name, MOS, email, phone, religion…" autocomplete="off"></label>' +
       (extra || "") + "</div>";
+  };
+  CH.optsel = function (key, label, opts) {
+    var cur = CH.state[key];
+    return "<label>" + label + '<select data-st="' + key + '">' + opts.map(function (o) {
+      return '<option value="' + CH.esc(o[0]) + '"' + (String(cur) === String(o[0]) ? " selected" : "") + ">" + o[1] + "</option>";
+    }).join("") + "</select></label>";
+  };
+  CH.homeFilterBar = function () {
+    return CH.filterBar(
+      CH.optsel("aftFilter", "AFT", [["All", "All AFT results"], ["Passed", "Passed"], ["Failed", "Failed"], ["Overdue", "Test overdue"]]) +
+      CH.optsel("etsWin", "ETS / MRD", [["All", "Any expiration"], ["6", "Within 6 months"], ["12", "Within 12 months"], ["over", "Already due"]]) +
+      CH.optsel("wpnFilter", "Weapon", [["All", "All qualifications"], ["Expert", "Expert"], ["Sharpshooter", "Sharpshooter"], ["Marksman", "Marksman"], ["Overdue", "Qual overdue"]]) +
+      '<button type="button" class="btn sm btn-clear" id="btnClearFilters" data-clear="1">Clear filters</button>'
+    );
   };
   function hay(p) {
     return [p.name, p.rank, p.mos, p.job, p.uic, p.bn, p.religion, p.rel, p.phone, p.email, p.address, p.asi, p.smos, p.mel, p.edRecent].join(" ").toUpperCase();
@@ -97,6 +111,26 @@
       if (q && hay(p).indexOf(q) < 0) return false;
       return !extra || extra(p);
     });
+  };
+  CH.homeRows = function () {
+    var st = CH.state;
+    return CH.filtered(function (p) {
+      if (st.aftFilter === "Failed" && p.aft !== "Failed") return false;
+      if (st.aftFilter === "Passed" && p.aft !== "Passed") return false;
+      if (st.aftFilter === "Overdue" && !p.aftOverdue) return false;
+      if (st.etsWin && st.etsWin !== "All" && !CH.inWindow(p.daysExp, st.etsWin)) return false;
+      if (st.wpnFilter === "Overdue" && !p.wpnOverdue) return false;
+      if (st.wpnFilter === "Expert" || st.wpnFilter === "Sharpshooter" || st.wpnFilter === "Marksman") {
+        if (p.wpn !== st.wpnFilter) return false;
+      }
+      return true;
+    });
+  };
+  CH.clearFilters = function () {
+    CH.state.bn = "All"; CH.state.uic = "All"; CH.state.rank = "All"; CH.state.q = "";
+    CH.state.aftFilter = "All"; CH.state.etsWin = "All"; CH.state.wpnFilter = "All";
+    CH.state.selected = "";
+    CH.refresh();
   };
   CH.inWindow = function (days, win) {
     if (days == null) return false;
@@ -128,48 +162,93 @@
     var thead = cols.map(function (c) {
       var cls = [];
       if (c.num) cls.push("num");
+      if (c.cls) cls.push(c.cls);
       if (st.k === c.k) cls.push("sorted" + (st.dir === "asc" ? " asc" : ""));
-      return "<th" + (cls.length ? ' class="' + cls.join(" ") + '"' : "") + ' data-k="' + CH.esc(c.k) + '">' + c.lbl + "</th>";
+      return "<th" + (cls.length ? ' class="' + cls.join(" ") + '"' : "") + (c.nosort ? "" : ' data-k="' + CH.esc(c.k) + '"') + ">" + c.lbl + "</th>";
     }).join("");
     var body = sorted.map(function (r) {
       var cls = (opts.rowClass && opts.rowClass(r)) || "";
+      if (opts.expand && open === r.name) cls += " sel";
       var tds = cols.map(function (c) {
         var v = c.cell ? c.cell(r) : CH.esc(r[c.k] == null || r[c.k] === "" ? "—" : r[c.k]);
-        return "<td" + (c.num ? ' class="num"' : c.wrap ? ' class="wrapc"' : c.k === "name" ? ' class="namec"' : "") + ">" + v + "</td>";
+        var tdcls = [];
+        if (c.num) tdcls.push("num");
+        if (c.wrap) tdcls.push("wrapc");
+        if (c.cls) tdcls.push(c.cls);
+        if (c.k === "name") tdcls.push("namec");
+        return "<td" + (tdcls.length ? ' class="' + tdcls.join(" ") + '"' : "") + ">" + v + "</td>";
       }).join("");
       var main = '<tr class="' + cls + (opts.expand ? " clickrow" : "") + '" data-name="' + CH.esc(r.name) + '">' + tds + "</tr>";
-      if (opts.expand && open === r.name) main += '<tr class="sdet" data-stop="1"><td colspan="' + cols.length + '">' + CH.personDetail(r) + "</td></tr>";
+      if (opts.expand && open === r.name) main += '<tr class="sdet" data-stop="1"><td colspan="' + cols.length + '">' + CH.personProfile(r) + "</td></tr>";
       return main;
     }).join("");
     if (!rows.length) body = '<tr><td colspan="' + cols.length + '" class="muted">No Soldiers match these filters.</td></tr>';
-    return '<div class="tablehead"><h2>' + (opts.title || "Roster") + ' <span class="muted small">' + CH.num(rows.length) + "</span></h2>" +
-      (opts.tools || "") + "</div><div class=\"tablewrap scrolly\"><table class=\"grid\" data-page=\"" + page + "\"><thead><tr>" + thead + "</tr></thead><tbody>" + body + "</tbody></table></div>";
+    var hint = opts.hint ? '<p class="pgnote rohint">' + opts.hint + "</p>" : "";
+    var wrapCls = "tablewrap scrolly" + (opts.noXScroll ? " nox" : "");
+    var tblCls = "grid" + (opts.tblClass ? " " + opts.tblClass : "");
+    return hint + '<div class="tablehead"><h2>' + (opts.title || "Roster") + ' <span class="muted small">' + CH.num(rows.length) + "</span></h2>" +
+      (opts.tools || "") + "</div><div class=\"" + wrapCls + "\"><table class=\"" + tblCls + "\" data-page=\"" + page + "\"><thead><tr>" + thead + "</tr></thead><tbody>" + body + "</tbody></table></div>";
   };
-  CH.personDetail = function (p) {
+  CH.statusFlags = function (p) {
+    var flags = [];
+    if (p.veryLongTig) flags.push(["over", "Time in grade " + CH.yearsText(p.yearsTig)]);
+    else if (p.longTig) flags.push(["m6", "Time in grade " + CH.yearsText(p.yearsTig)]);
+    if (p.evalOverdue) flags.push(["over", p.eval ? "Eval overdue (" + CH.yearsText(p.daysEval / 365.25) + ")" : "Eval missing"]);
+    else if (p.evalDue) flags.push(["m12", "Eval due (" + CH.yearsText(p.daysEval / 365.25) + ")"]);
+    if (p.aft === "Failed") flags.push(["over", "AFT failed"]);
+    if (p.aftOverdue) flags.push(["m6", p.pftDate ? "AFT test overdue" : "No AFT date"]);
+    if (p.wpnOverdue) flags.push(["m6", p.wpnDate ? "Weapon qual overdue" : "No weapon qualification"]);
+    if (p.daysExp != null && p.daysExp <= 183) flags.push([p.daysExp <= 0 ? "over" : "m6", p.expirationType + " " + CH.daysText(p.daysExp)]);
+    else if (p.daysExp != null && p.daysExp <= 365) flags.push(["m12", p.expirationType + " " + CH.daysText(p.daysExp)]);
+    if (p.daysRet != null && p.daysRet <= 0) flags.push(["over", "Retirement eligible now"]);
+    else if (p.daysRet != null && p.daysRet <= 183) flags.push(["m6", "Retirement " + CH.daysText(p.daysRet)]);
+    else if (p.daysRet != null && p.daysRet <= 365) flags.push(["m12", "Retirement " + CH.daysText(p.daysRet)]);
+    if (!flags.length) flags.push(["ok", "No flags"]);
+    return flags;
+  };
+  CH.personProfile = function (p, opts) {
+    opts = opts || {};
     function cell(l, v) { return "<div><span>" + l + "</span><b>" + (v || "—") + "</b></div>"; }
-    return '<div class="detgrid">' +
-      cell("Rank / Name", CH.esc(p.rank + "  " + p.name)) +
-      cell("MOS", CH.esc(p.mos) + (p.job && p.job !== p.mos ? ' <span class="relcode">' + CH.esc(p.job) + "</span>" : "")) +
-      cell("UIC / Battalion", CH.esc([p.uic, p.bn].filter(Boolean).join(" · "))) +
+    var flags = CH.statusFlags(p).map(function (f) { return '<span class="duepill ' + f[0] + '">' + CH.esc(f[1]) + "</span>"; }).join("");
+    var close = opts.closable ? '<button type="button" class="btn sm profile-close" data-unselect="1">Close</button>' : "";
+    return '<div class="profile" data-profile="' + CH.esc(p.name) + '"><div class="profile-head"><div><div class="eyebrow">Soldier record</div><h2>' +
+      CH.esc(p.rank + "  " + p.name) + "</h2><div class=\"scope\">" + CH.esc([p.mos || p.job, p.bn, p.uic].filter(Boolean).join(" · ")) +
+      '</div><div class="flagrow">' + flags + "</div></div>" + close + "</div><div class=\"detgrid\">" +
+      cell("Rank", CH.esc(p.rank)) +
+      cell("Full name", CH.esc(p.name)) +
       cell("Religion", CH.esc(p.religion) + (p.rel ? ' <span class="relcode">' + CH.esc(CH.relKey(p.rel)) + (p.religionKnown ? "" : " (unmapped)") + "</span>" : "")) +
-      cell("Date of Rank", CH.dateText(p.dor) + (p.yearsTig != null ? " · " + CH.yearsText(p.yearsTig) : "")) +
-      cell("DIEMS / service", CH.dateText(p.diems) + (p.yearsSvc != null ? " · " + CH.yearsText(p.yearsSvc) : "")) +
-      cell(p.expirationType, CH.dateText(p.expiration) + (p.daysExp != null ? " · " + CH.daysText(p.daysExp) : "")) +
-      cell("Retirement eligible", CH.dateText(p.ret) + (p.daysRet != null ? " · " + CH.daysText(p.daysRet) : "")) +
-      cell("AFT", (p.aft ? CH.esc(p.aft) : "—") + (p.pftDate ? " · " + CH.dateText(p.pftDate) : "")) +
-      cell("Weapon", (p.wpn ? CH.esc(p.wpn) : "—") + (p.wpnDate ? " · " + CH.dateText(p.wpnDate) : "")) +
-      cell("Highest MEL", CH.esc(p.mel)) +
-      cell("Recent school / status", CH.esc([p.edRecent, p.edStat].filter(Boolean).join(" · "))) +
-      cell("Last evaluation", CH.dateText(p.eval) + (p.daysEval != null ? " · " + CH.daysText(-p.daysEval).replace(/^in /, "").replace(/ ago$/, " ago") : "")) +
-      cell("ASI / SMOS", CH.esc([p.asi, p.smos].filter(Boolean).join(" / ") || "—")) +
-      cell("Phone", CH.esc(p.phone)) +
-      cell("Email", p.email ? '<a href="mailto:' + CH.esc(p.email) + '">' + CH.esc(p.email) + "</a>" : "—") +
-      cell("Address", CH.esc(p.address)) +
-      cell("Rows in report", CH.num(p.srcRows) + " collapsed to this Soldier") +
-      "</div>";
+      cell("Job code", CH.esc(p.mos || "—") + (p.job && p.job !== p.mos ? ' <span class="relcode">report: ' + CH.esc(p.job) + "</span>" : "")) +
+      cell("Date of Rank", CH.dateText(p.dor) + (p.yearsTig != null ? " · " + CH.yearsText(p.yearsTig) + " in grade" : "")) +
+      cell(p.expirationType || "Expiration", CH.dateText(p.expiration) + (p.daysExp != null ? " · " + CH.daysText(p.daysExp) : "")) +
+      cell("Retirement pay eligibility", CH.dateText(p.ret) + (p.daysRet != null ? " · " + CH.daysText(p.daysRet) : "")) +
+      cell("Highest MEL completed", CH.esc(p.mel)) +
+      cell("Most recent course", CH.esc(p.edRecent)) +
+      cell("Military education status", CH.esc(p.edStat)) +
+      cell("Last evaluation (OER / NCOER)", CH.dateText(p.eval) + (p.daysEval != null ? " · " + CH.yearsText(p.daysEval / 365.25) + " ago" : "")) +
+      cell("AFT pass / fail", (p.aft ? CH.aftPill(p.aft) : "—")) +
+      cell("Physical fitness test date", CH.dateText(p.pftDate) + (p.daysAft != null ? " · " + CH.yearsText(p.daysAft / 365.25) + " ago" : "")) +
+      cell("PFT category / description", CH.esc([p.pftCat, p.pftDesc].filter(Boolean).join(" · "))) +
+      cell("Weapon qualification", (p.wpn ? CH.wpnPill(p.wpn) : "—")) +
+      cell("Weapon qualification date", CH.dateText(p.wpnDate) + (p.daysWpn != null ? " · " + CH.yearsText(p.daysWpn / 365.25) + " ago" : "")) +
+      cell("UIC", CH.esc(p.uic)) +
+      cell("BN Name", CH.esc(p.bn)) +
+      cell("ASI", CH.esc(p.asi || "—")) +
+      cell("SMOS", CH.esc(p.smos || "—")) +
+      cell("Date initial entry (DIEMS)", CH.dateText(p.diems) + (p.yearsSvc != null ? " · " + CH.yearsText(p.yearsSvc) + " of service" : "")) +
+      cell("Preferred phone", CH.esc(p.phone)) +
+      cell("Home email", p.email ? '<a href="mailto:' + CH.esc(p.email) + '">' + CH.esc(p.email) + "</a>" : "—") +
+      cell("Home address", CH.esc(p.address || "—")) +
+      cell("Rows in the report", CH.num(p.srcRows) + " collapsed to this Soldier") +
+      "</div></div>";
   };
+  CH.personDetail = function (p) { return CH.personProfile(p); };
   CH.nameCell = function (p) {
-    return '<button type="button" class="namebtn" data-open="' + CH.esc(p.name) + '">' + CH.esc(p.name) + "</button>";
+    var on = CH.state.open === p.name;
+    return '<span class="caret">' + (on ? "▾" : "▸") + '</span><button type="button" class="namebtn" data-open="' + CH.esc(p.name) + '">' + CH.esc(p.name) + "</button>";
+  };
+  CH.viewCell = function (p) {
+    var on = CH.state.open === p.name;
+    return '<button type="button" class="btn sm viewbtn" data-open="' + CH.esc(p.name) + '">' + (on ? "Hide" : "View") + "</button>";
   };
 
   CH.bindCommon = function (root, mod) {
@@ -216,6 +295,12 @@
         CH.refresh();
       });
     });
+    root.querySelectorAll("[data-clear]").forEach(function (b) {
+      b.addEventListener("click", function (e) { e.preventDefault(); e.stopPropagation(); CH.clearFilters(); });
+    });
+    root.querySelectorAll("[data-unselect]").forEach(function (b) {
+      b.addEventListener("click", function (e) { e.preventDefault(); e.stopPropagation(); CH.state.selected = ""; CH.refresh(); });
+    });
   };
 
   CH.chart = function (id, cfg) {
@@ -246,7 +331,24 @@
     var mod = CH.mods[p];
     if (mod && mod.render) mod.render();
   }
-  CH.refresh = function () { render(page(), true); headerState(); };
+  CH.refresh = function () {
+    var ae = document.activeElement, restore = null;
+    if (ae && ae.getAttribute && ae.getAttribute("data-st")) {
+      restore = { id: ae.id, st: ae.getAttribute("data-st"), start: ae.selectionStart, end: ae.selectionEnd, val: ae.value };
+    }
+    render(page(), true);
+    headerState();
+    if (restore) {
+      var el = (restore.id && document.getElementById(restore.id)) || (restore.st && document.querySelector("[data-st='" + restore.st + "']"));
+      if (el && el.focus) {
+        el.focus();
+        if (restore.start != null && el.setSelectionRange) {
+          try { el.setSelectionRange(restore.start, restore.end); } catch (e) {}
+        }
+      }
+    }
+  };
+
 
   function headerState() {
     $("asOf").textContent = CH.data.asOf ? "Data as of " + CH.dateText(CH.data.asOf) : "";

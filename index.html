@@ -399,6 +399,63 @@ tr.sdet td{background:#f8fafc;white-space:normal}
 @media(max-width:1280px){.tabs span{display:none}.tabs button{padding:8px 10px}.tiles.t8{grid-template-columns:repeat(4,1fr)}.overview.o3{grid-template-columns:1fr}}
 @media(max-width:1000px){.tiles.t8{grid-template-columns:repeat(2,1fr)}.kpis.k6{grid-template-columns:repeat(2,1fr)}}
 
+/* Header: tab labels always visible, wrap instead of scrolling off (Evaluations was cut off) */
+header.top .bar{height:auto;min-height:62px;justify-content:space-between;flex-wrap:wrap}
+header.top nav.tabs{
+  display:flex;flex-wrap:wrap;overflow:visible;scrollbar-width:none;
+  gap:2px;padding-top:0;padding-bottom:10px;flex:none;width:100%;max-width:1360px;
+}
+header.top nav.tabs button{white-space:nowrap;padding:7px 10px;font-size:.84rem}
+header.top nav.tabs span{display:inline !important}
+@media(max-width:1520px){header.top .asof{display:none}}
+@media(max-width:1280px){
+  header.top nav.tabs span{display:inline !important}
+  header.top nav.tabs button{padding:6px 8px;font-size:.8rem}
+  .tiles.t8{grid-template-columns:repeat(4,1fr)}
+  .overview.o3{grid-template-columns:1fr}
+}
+@media(max-width:1000px){.tiles.t8{grid-template-columns:repeat(2,1fr)}.kpis.k6{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:1250px){header.top nav.tabs span{display:inline !important}}
+
+/* Roster: fit the page, no horizontal scroll */
+#page-roster .tablewrap,
+#page-roster .tablewrap.scrolly{overflow-x:hidden;max-width:100%}
+#page-roster table.grid.roster{table-layout:fixed;width:100%;font-size:.8rem}
+#page-roster table.grid.roster th,
+#page-roster table.grid.roster td{white-space:normal;overflow-wrap:anywhere;word-break:break-word;padding:6px 7px;min-width:0}
+#page-roster table.grid.roster th{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#page-roster table.grid.roster .col-view{width:72px;white-space:nowrap}
+#page-roster table.grid.roster .col-rank{width:56px}
+#page-roster table.grid.roster .col-mos{width:54px}
+#page-roster table.grid.roster .col-aft{width:78px}
+#page-roster table.grid.roster .col-wpn{width:108px}
+#page-roster table.grid.roster td.namec{font-size:.82rem}
+#page-roster table.grid.roster td.wrapc{min-width:0;max-width:none}
+#page-roster tr.clickrow{cursor:pointer}
+#page-roster tr.clickrow:hover td{background:#eef4ff}
+#page-roster tr.clickrow.sel td{background:#eaf1fe}
+.viewbtn{padding:4px 10px !important;font-size:.76rem !important;gap:4px !important}
+.rohint{margin:0 0 10px}
+.caret{display:inline-block;width:10px;color:var(--soft);font-size:.7rem;margin-right:4px}
+
+/* Soldier picker + full profile */
+.picker{position:relative}
+.picker input[type=search]{width:100%}
+.picker-list{
+  position:absolute;left:0;right:0;top:100%;z-index:20;max-height:260px;overflow-y:auto;
+  background:var(--panel);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);margin-top:4px;
+}
+.picker-list button{display:block;width:100%;text-align:left;border:0;background:none;padding:8px 12px;font:inherit;font-size:.9rem;cursor:pointer}
+.picker-list button:hover,.picker-list button:focus{background:#eaf1fe;color:var(--accent2)}
+.picker-list .empty{padding:10px 12px;color:var(--muted);font-size:.86rem}
+.profile{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin-bottom:16px;box-shadow:var(--shadow)}
+.profile-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:12px}
+.profile-head h2{margin:0;font-size:1.35rem;letter-spacing:-.3px}
+.flagrow{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 0}
+.profile .detgrid{margin-top:8px}
+.profile-close{margin-left:auto}
+.filters .btn-clear{align-self:flex-end;margin-bottom:1px}
+
 </style>
 </head>
 <body>
@@ -424,17 +481,6 @@ tr.sdet td{background:#f8fafc;white-space:normal}
     <button class="brand" type="button" data-go="home" aria-label="Home">
       <span class="mark"><svg class="ic"><use href="#i-cross"/></svg></span><span class="bname">Chaplain Corps</span>
     </button>
-    <nav class="tabs" id="tabs" aria-label="Pages">
-      <button type="button" data-go="home"><svg class="ic"><use href="#i-home"/></svg><span>Home</span></button>
-      <button type="button" data-go="roster"><svg class="ic"><use href="#i-ros"/></svg><span>Roster</span></button>
-      <button type="button" data-go="ets"><svg class="ic"><use href="#i-ets"/></svg><span>ETS / MRD</span></button>
-      <button type="button" data-go="retire"><svg class="ic"><use href="#i-ret"/></svg><span>Retirement</span></button>
-      <button type="button" data-go="aft"><svg class="ic"><use href="#i-aft"/></svg><span>AFT</span></button>
-      <button type="button" data-go="tig"><svg class="ic"><use href="#i-tig"/></svg><span>Time in Grade</span></button>
-      <button type="button" data-go="schools"><svg class="ic"><use href="#i-sch"/></svg><span>Schools</span></button>
-      <button type="button" data-go="evals"><svg class="ic"><use href="#i-eval"/></svg><span>Evaluations</span></button>
-      <button type="button" data-go="weapons"><svg class="ic"><use href="#i-wpn"/></svg><span>Weapons</span></button>
-    </nav>
     <div class="tools">
       <span class="asof" id="asOf"></span>
       <button class="btn primary" id="btnUpload" type="button" title="Choose the personnel report and/or the address report. Excel or CSV, recognised by headers."><svg class="ic"><use href="#i-upload"/></svg><span>Upload data</span></button>
@@ -442,6 +488,17 @@ tr.sdet td{background:#f8fafc;white-space:normal}
       <button class="iconbtn" id="btnInfo" type="button" title="Data details" aria-label="Data details" aria-controls="drawer" aria-expanded="false"><svg class="ic"><use href="#i-info"/></svg></button>
     </div>
   </div>
+  <nav class="wrap tabs" id="tabs" aria-label="Pages">
+    <button type="button" data-go="home"><svg class="ic"><use href="#i-home"/></svg><span>Home</span></button>
+    <button type="button" data-go="roster"><svg class="ic"><use href="#i-ros"/></svg><span>Roster</span></button>
+    <button type="button" data-go="ets"><svg class="ic"><use href="#i-ets"/></svg><span>ETS / MRD</span></button>
+    <button type="button" data-go="retire"><svg class="ic"><use href="#i-ret"/></svg><span>Retirement</span></button>
+    <button type="button" data-go="aft"><svg class="ic"><use href="#i-aft"/></svg><span>AFT</span></button>
+    <button type="button" data-go="tig"><svg class="ic"><use href="#i-tig"/></svg><span>Time in Grade</span></button>
+    <button type="button" data-go="schools"><svg class="ic"><use href="#i-sch"/></svg><span>Schools</span></button>
+    <button type="button" data-go="evals"><svg class="ic"><use href="#i-eval"/></svg><span>Evaluations</span></button>
+    <button type="button" data-go="weapons"><svg class="ic"><use href="#i-wpn"/></svg><span>Weapons</span></button>
+  </nav>
 </header>
 
 <main class="wrap" id="main">
@@ -1289,7 +1346,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
   CH.$ = $;
   CH.mods = {};
   CH.charts = {};
-  CH.state = { bn: "All", uic: "All", rank: "All", q: "", window: "12", aftView: "all", wpnView: "all", evalView: "all", open: "", sort: {}, pageSort: {} };
+  CH.state = { bn: "All", uic: "All", rank: "All", q: "", window: "12", aftView: "all", wpnView: "all", evalView: "all", aftFilter: "All", etsWin: "All", wpnFilter: "All", selected: "", open: "", sort: {}, pageSort: {} };
   CH.esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
   CH.dateText = function (d) { d = CH.parseDate(d); return d ? ("0" + d.getDate()).slice(-2) + " " + CH.MONS[d.getMonth()] + " " + d.getFullYear() : "—"; };
   CH.num = function (v) { return Math.round(v).toLocaleString("en-US"); };
@@ -1367,8 +1424,22 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
       CH.sel("bn", "Battalion", "All battalions", o.bns) +
       CH.sel("uic", "UIC", "All UICs", o.uics) +
       CH.sel("rank", "Rank", "All ranks", o.ranks) +
-      '<label class="grow">Search<input type="search" data-st="q" value="' + CH.esc(CH.state.q) + '" placeholder="Name, MOS, email, phone, religion…"></label>' +
+      '<label class="grow">Search<input type="search" id="filterSearch" data-st="q" value="' + CH.esc(CH.state.q) + '" placeholder="Name, MOS, email, phone, religion…" autocomplete="off"></label>' +
       (extra || "") + "</div>";
+  };
+  CH.optsel = function (key, label, opts) {
+    var cur = CH.state[key];
+    return "<label>" + label + '<select data-st="' + key + '">' + opts.map(function (o) {
+      return '<option value="' + CH.esc(o[0]) + '"' + (String(cur) === String(o[0]) ? " selected" : "") + ">" + o[1] + "</option>";
+    }).join("") + "</select></label>";
+  };
+  CH.homeFilterBar = function () {
+    return CH.filterBar(
+      CH.optsel("aftFilter", "AFT", [["All", "All AFT results"], ["Passed", "Passed"], ["Failed", "Failed"], ["Overdue", "Test overdue"]]) +
+      CH.optsel("etsWin", "ETS / MRD", [["All", "Any expiration"], ["6", "Within 6 months"], ["12", "Within 12 months"], ["over", "Already due"]]) +
+      CH.optsel("wpnFilter", "Weapon", [["All", "All qualifications"], ["Expert", "Expert"], ["Sharpshooter", "Sharpshooter"], ["Marksman", "Marksman"], ["Overdue", "Qual overdue"]]) +
+      '<button type="button" class="btn sm btn-clear" id="btnClearFilters" data-clear="1">Clear filters</button>'
+    );
   };
   function hay(p) {
     return [p.name, p.rank, p.mos, p.job, p.uic, p.bn, p.religion, p.rel, p.phone, p.email, p.address, p.asi, p.smos, p.mel, p.edRecent].join(" ").toUpperCase();
@@ -1382,6 +1453,26 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
       if (q && hay(p).indexOf(q) < 0) return false;
       return !extra || extra(p);
     });
+  };
+  CH.homeRows = function () {
+    var st = CH.state;
+    return CH.filtered(function (p) {
+      if (st.aftFilter === "Failed" && p.aft !== "Failed") return false;
+      if (st.aftFilter === "Passed" && p.aft !== "Passed") return false;
+      if (st.aftFilter === "Overdue" && !p.aftOverdue) return false;
+      if (st.etsWin && st.etsWin !== "All" && !CH.inWindow(p.daysExp, st.etsWin)) return false;
+      if (st.wpnFilter === "Overdue" && !p.wpnOverdue) return false;
+      if (st.wpnFilter === "Expert" || st.wpnFilter === "Sharpshooter" || st.wpnFilter === "Marksman") {
+        if (p.wpn !== st.wpnFilter) return false;
+      }
+      return true;
+    });
+  };
+  CH.clearFilters = function () {
+    CH.state.bn = "All"; CH.state.uic = "All"; CH.state.rank = "All"; CH.state.q = "";
+    CH.state.aftFilter = "All"; CH.state.etsWin = "All"; CH.state.wpnFilter = "All";
+    CH.state.selected = "";
+    CH.refresh();
   };
   CH.inWindow = function (days, win) {
     if (days == null) return false;
@@ -1413,48 +1504,93 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
     var thead = cols.map(function (c) {
       var cls = [];
       if (c.num) cls.push("num");
+      if (c.cls) cls.push(c.cls);
       if (st.k === c.k) cls.push("sorted" + (st.dir === "asc" ? " asc" : ""));
-      return "<th" + (cls.length ? ' class="' + cls.join(" ") + '"' : "") + ' data-k="' + CH.esc(c.k) + '">' + c.lbl + "</th>";
+      return "<th" + (cls.length ? ' class="' + cls.join(" ") + '"' : "") + (c.nosort ? "" : ' data-k="' + CH.esc(c.k) + '"') + ">" + c.lbl + "</th>";
     }).join("");
     var body = sorted.map(function (r) {
       var cls = (opts.rowClass && opts.rowClass(r)) || "";
+      if (opts.expand && open === r.name) cls += " sel";
       var tds = cols.map(function (c) {
         var v = c.cell ? c.cell(r) : CH.esc(r[c.k] == null || r[c.k] === "" ? "—" : r[c.k]);
-        return "<td" + (c.num ? ' class="num"' : c.wrap ? ' class="wrapc"' : c.k === "name" ? ' class="namec"' : "") + ">" + v + "</td>";
+        var tdcls = [];
+        if (c.num) tdcls.push("num");
+        if (c.wrap) tdcls.push("wrapc");
+        if (c.cls) tdcls.push(c.cls);
+        if (c.k === "name") tdcls.push("namec");
+        return "<td" + (tdcls.length ? ' class="' + tdcls.join(" ") + '"' : "") + ">" + v + "</td>";
       }).join("");
       var main = '<tr class="' + cls + (opts.expand ? " clickrow" : "") + '" data-name="' + CH.esc(r.name) + '">' + tds + "</tr>";
-      if (opts.expand && open === r.name) main += '<tr class="sdet" data-stop="1"><td colspan="' + cols.length + '">' + CH.personDetail(r) + "</td></tr>";
+      if (opts.expand && open === r.name) main += '<tr class="sdet" data-stop="1"><td colspan="' + cols.length + '">' + CH.personProfile(r) + "</td></tr>";
       return main;
     }).join("");
     if (!rows.length) body = '<tr><td colspan="' + cols.length + '" class="muted">No Soldiers match these filters.</td></tr>';
-    return '<div class="tablehead"><h2>' + (opts.title || "Roster") + ' <span class="muted small">' + CH.num(rows.length) + "</span></h2>" +
-      (opts.tools || "") + "</div><div class=\"tablewrap scrolly\"><table class=\"grid\" data-page=\"" + page + "\"><thead><tr>" + thead + "</tr></thead><tbody>" + body + "</tbody></table></div>";
+    var hint = opts.hint ? '<p class="pgnote rohint">' + opts.hint + "</p>" : "";
+    var wrapCls = "tablewrap scrolly" + (opts.noXScroll ? " nox" : "");
+    var tblCls = "grid" + (opts.tblClass ? " " + opts.tblClass : "");
+    return hint + '<div class="tablehead"><h2>' + (opts.title || "Roster") + ' <span class="muted small">' + CH.num(rows.length) + "</span></h2>" +
+      (opts.tools || "") + "</div><div class=\"" + wrapCls + "\"><table class=\"" + tblCls + "\" data-page=\"" + page + "\"><thead><tr>" + thead + "</tr></thead><tbody>" + body + "</tbody></table></div>";
   };
-  CH.personDetail = function (p) {
+  CH.statusFlags = function (p) {
+    var flags = [];
+    if (p.veryLongTig) flags.push(["over", "Time in grade " + CH.yearsText(p.yearsTig)]);
+    else if (p.longTig) flags.push(["m6", "Time in grade " + CH.yearsText(p.yearsTig)]);
+    if (p.evalOverdue) flags.push(["over", p.eval ? "Eval overdue (" + CH.yearsText(p.daysEval / 365.25) + ")" : "Eval missing"]);
+    else if (p.evalDue) flags.push(["m12", "Eval due (" + CH.yearsText(p.daysEval / 365.25) + ")"]);
+    if (p.aft === "Failed") flags.push(["over", "AFT failed"]);
+    if (p.aftOverdue) flags.push(["m6", p.pftDate ? "AFT test overdue" : "No AFT date"]);
+    if (p.wpnOverdue) flags.push(["m6", p.wpnDate ? "Weapon qual overdue" : "No weapon qualification"]);
+    if (p.daysExp != null && p.daysExp <= 183) flags.push([p.daysExp <= 0 ? "over" : "m6", p.expirationType + " " + CH.daysText(p.daysExp)]);
+    else if (p.daysExp != null && p.daysExp <= 365) flags.push(["m12", p.expirationType + " " + CH.daysText(p.daysExp)]);
+    if (p.daysRet != null && p.daysRet <= 0) flags.push(["over", "Retirement eligible now"]);
+    else if (p.daysRet != null && p.daysRet <= 183) flags.push(["m6", "Retirement " + CH.daysText(p.daysRet)]);
+    else if (p.daysRet != null && p.daysRet <= 365) flags.push(["m12", "Retirement " + CH.daysText(p.daysRet)]);
+    if (!flags.length) flags.push(["ok", "No flags"]);
+    return flags;
+  };
+  CH.personProfile = function (p, opts) {
+    opts = opts || {};
     function cell(l, v) { return "<div><span>" + l + "</span><b>" + (v || "—") + "</b></div>"; }
-    return '<div class="detgrid">' +
-      cell("Rank / Name", CH.esc(p.rank + "  " + p.name)) +
-      cell("MOS", CH.esc(p.mos) + (p.job && p.job !== p.mos ? ' <span class="relcode">' + CH.esc(p.job) + "</span>" : "")) +
-      cell("UIC / Battalion", CH.esc([p.uic, p.bn].filter(Boolean).join(" · "))) +
+    var flags = CH.statusFlags(p).map(function (f) { return '<span class="duepill ' + f[0] + '">' + CH.esc(f[1]) + "</span>"; }).join("");
+    var close = opts.closable ? '<button type="button" class="btn sm profile-close" data-unselect="1">Close</button>' : "";
+    return '<div class="profile" data-profile="' + CH.esc(p.name) + '"><div class="profile-head"><div><div class="eyebrow">Soldier record</div><h2>' +
+      CH.esc(p.rank + "  " + p.name) + "</h2><div class=\"scope\">" + CH.esc([p.mos || p.job, p.bn, p.uic].filter(Boolean).join(" · ")) +
+      '</div><div class="flagrow">' + flags + "</div></div>" + close + "</div><div class=\"detgrid\">" +
+      cell("Rank", CH.esc(p.rank)) +
+      cell("Full name", CH.esc(p.name)) +
       cell("Religion", CH.esc(p.religion) + (p.rel ? ' <span class="relcode">' + CH.esc(CH.relKey(p.rel)) + (p.religionKnown ? "" : " (unmapped)") + "</span>" : "")) +
-      cell("Date of Rank", CH.dateText(p.dor) + (p.yearsTig != null ? " · " + CH.yearsText(p.yearsTig) : "")) +
-      cell("DIEMS / service", CH.dateText(p.diems) + (p.yearsSvc != null ? " · " + CH.yearsText(p.yearsSvc) : "")) +
-      cell(p.expirationType, CH.dateText(p.expiration) + (p.daysExp != null ? " · " + CH.daysText(p.daysExp) : "")) +
-      cell("Retirement eligible", CH.dateText(p.ret) + (p.daysRet != null ? " · " + CH.daysText(p.daysRet) : "")) +
-      cell("AFT", (p.aft ? CH.esc(p.aft) : "—") + (p.pftDate ? " · " + CH.dateText(p.pftDate) : "")) +
-      cell("Weapon", (p.wpn ? CH.esc(p.wpn) : "—") + (p.wpnDate ? " · " + CH.dateText(p.wpnDate) : "")) +
-      cell("Highest MEL", CH.esc(p.mel)) +
-      cell("Recent school / status", CH.esc([p.edRecent, p.edStat].filter(Boolean).join(" · "))) +
-      cell("Last evaluation", CH.dateText(p.eval) + (p.daysEval != null ? " · " + CH.daysText(-p.daysEval).replace(/^in /, "").replace(/ ago$/, " ago") : "")) +
-      cell("ASI / SMOS", CH.esc([p.asi, p.smos].filter(Boolean).join(" / ") || "—")) +
-      cell("Phone", CH.esc(p.phone)) +
-      cell("Email", p.email ? '<a href="mailto:' + CH.esc(p.email) + '">' + CH.esc(p.email) + "</a>" : "—") +
-      cell("Address", CH.esc(p.address)) +
-      cell("Rows in report", CH.num(p.srcRows) + " collapsed to this Soldier") +
-      "</div>";
+      cell("Job code", CH.esc(p.mos || "—") + (p.job && p.job !== p.mos ? ' <span class="relcode">report: ' + CH.esc(p.job) + "</span>" : "")) +
+      cell("Date of Rank", CH.dateText(p.dor) + (p.yearsTig != null ? " · " + CH.yearsText(p.yearsTig) + " in grade" : "")) +
+      cell(p.expirationType || "Expiration", CH.dateText(p.expiration) + (p.daysExp != null ? " · " + CH.daysText(p.daysExp) : "")) +
+      cell("Retirement pay eligibility", CH.dateText(p.ret) + (p.daysRet != null ? " · " + CH.daysText(p.daysRet) : "")) +
+      cell("Highest MEL completed", CH.esc(p.mel)) +
+      cell("Most recent course", CH.esc(p.edRecent)) +
+      cell("Military education status", CH.esc(p.edStat)) +
+      cell("Last evaluation (OER / NCOER)", CH.dateText(p.eval) + (p.daysEval != null ? " · " + CH.yearsText(p.daysEval / 365.25) + " ago" : "")) +
+      cell("AFT pass / fail", (p.aft ? CH.aftPill(p.aft) : "—")) +
+      cell("Physical fitness test date", CH.dateText(p.pftDate) + (p.daysAft != null ? " · " + CH.yearsText(p.daysAft / 365.25) + " ago" : "")) +
+      cell("PFT category / description", CH.esc([p.pftCat, p.pftDesc].filter(Boolean).join(" · "))) +
+      cell("Weapon qualification", (p.wpn ? CH.wpnPill(p.wpn) : "—")) +
+      cell("Weapon qualification date", CH.dateText(p.wpnDate) + (p.daysWpn != null ? " · " + CH.yearsText(p.daysWpn / 365.25) + " ago" : "")) +
+      cell("UIC", CH.esc(p.uic)) +
+      cell("BN Name", CH.esc(p.bn)) +
+      cell("ASI", CH.esc(p.asi || "—")) +
+      cell("SMOS", CH.esc(p.smos || "—")) +
+      cell("Date initial entry (DIEMS)", CH.dateText(p.diems) + (p.yearsSvc != null ? " · " + CH.yearsText(p.yearsSvc) + " of service" : "")) +
+      cell("Preferred phone", CH.esc(p.phone)) +
+      cell("Home email", p.email ? '<a href="mailto:' + CH.esc(p.email) + '">' + CH.esc(p.email) + "</a>" : "—") +
+      cell("Home address", CH.esc(p.address || "—")) +
+      cell("Rows in the report", CH.num(p.srcRows) + " collapsed to this Soldier") +
+      "</div></div>";
   };
+  CH.personDetail = function (p) { return CH.personProfile(p); };
   CH.nameCell = function (p) {
-    return '<button type="button" class="namebtn" data-open="' + CH.esc(p.name) + '">' + CH.esc(p.name) + "</button>";
+    var on = CH.state.open === p.name;
+    return '<span class="caret">' + (on ? "▾" : "▸") + '</span><button type="button" class="namebtn" data-open="' + CH.esc(p.name) + '">' + CH.esc(p.name) + "</button>";
+  };
+  CH.viewCell = function (p) {
+    var on = CH.state.open === p.name;
+    return '<button type="button" class="btn sm viewbtn" data-open="' + CH.esc(p.name) + '">' + (on ? "Hide" : "View") + "</button>";
   };
 
   CH.bindCommon = function (root, mod) {
@@ -1501,6 +1637,12 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         CH.refresh();
       });
     });
+    root.querySelectorAll("[data-clear]").forEach(function (b) {
+      b.addEventListener("click", function (e) { e.preventDefault(); e.stopPropagation(); CH.clearFilters(); });
+    });
+    root.querySelectorAll("[data-unselect]").forEach(function (b) {
+      b.addEventListener("click", function (e) { e.preventDefault(); e.stopPropagation(); CH.state.selected = ""; CH.refresh(); });
+    });
   };
 
   CH.chart = function (id, cfg) {
@@ -1531,7 +1673,24 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
     var mod = CH.mods[p];
     if (mod && mod.render) mod.render();
   }
-  CH.refresh = function () { render(page(), true); headerState(); };
+  CH.refresh = function () {
+    var ae = document.activeElement, restore = null;
+    if (ae && ae.getAttribute && ae.getAttribute("data-st")) {
+      restore = { id: ae.id, st: ae.getAttribute("data-st"), start: ae.selectionStart, end: ae.selectionEnd, val: ae.value };
+    }
+    render(page(), true);
+    headerState();
+    if (restore) {
+      var el = (restore.id && document.getElementById(restore.id)) || (restore.st && document.querySelector("[data-st='" + restore.st + "']"));
+      if (el && el.focus) {
+        el.focus();
+        if (restore.start != null && el.setSelectionRange) {
+          try { el.setSelectionRange(restore.start, restore.end); } catch (e) {}
+        }
+      }
+    }
+  };
+
 
   function headerState() {
     $("asOf").textContent = CH.data.asOf ? "Data as of " + CH.dateText(CH.data.asOf) : "";
@@ -1722,24 +1881,70 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
 
   /* ---------- Home ---------- */
   var Home = CH.mods.home = { ui: {} };
+  function bindPicker(rows) {
+    var input = document.getElementById("soldierSearch"), list = document.getElementById("soldierList");
+    if (!input || !list) return;
+    function hitsFor(q) {
+      var k = CH.nameKey(q || "");
+      return rows.filter(function (p) { return !k || (p.rank + " " + p.name).toUpperCase().indexOf(k) >= 0 || p.name.toUpperCase().indexOf(k) >= 0; });
+    }
+    function show(q) {
+      var hits = hitsFor(q);
+      list.hidden = false;
+      if (!hits.length) { list.innerHTML = '<div class="empty">No matching Soldiers in the current filters.</div>'; return; }
+      list.innerHTML = hits.map(function (p) {
+        return '<button type="button" data-pick="' + CH.esc(p.name) + '">' + CH.esc(p.rank + "  " + p.name) + "</button>";
+      }).join("");
+      list.querySelectorAll("[data-pick]").forEach(function (b) {
+        b.addEventListener("mousedown", function (e) { e.preventDefault(); });
+        b.addEventListener("click", function () {
+          CH.state.selected = b.getAttribute("data-pick");
+          if (input) input.blur();
+          list.hidden = true;
+          CH.refresh();
+        });
+      });
+    }
+    input.addEventListener("focus", function () { show(input.value); });
+    input.addEventListener("input", function () { show(input.value); });
+    input.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") { list.hidden = true; return; }
+      if (e.key === "Enter") {
+        e.preventDefault();
+        var hits = hitsFor(input.value);
+        if (hits.length) { CH.state.selected = hits[0].name; if (input) input.blur(); list.hidden = true; CH.refresh(); }
+      }
+    });
+    input.addEventListener("blur", function () { setTimeout(function () { list.hidden = true; }, 150); });
+  }
   Home.render = function () {
-    var root = CH.$("page-home"), rows = CH.filtered(), c = counts(rows);
+    var root = CH.$("page-home"), rows = CH.homeRows(), c = counts(rows);
     var officers = rows.filter(function (p) { return p.component === "Officer"; }).length;
+    var selected = CH.state.selected ? rows.concat(CH.data.roster || []).filter(function (p) { return p.name === CH.state.selected; })[0] : null;
     var h = '<div class="hero"><div><div class="eyebrow">Chaplain Corps</div><h1>Chaplain Corps Dashboard' + CH.testTag() + '</h1><p class="lead">' +
       (CH.data.source === "test" ? "Fictional Prairie Division test data · " : "") +
       (CH.data.asOf ? "As of " + CH.dateText(CH.data.asOf) + " · " : "") +
-      "ETS and MRD, retirement, AFT, time in grade, schools, evaluations and weapons in one place.</p>" +
-      '<div class="hctl" data-stop="1">' + CH.filterBar().replace('class="filters"', 'class="filters" style="margin:12px 0 0;width:100%"') + "</div></div></div>";
+      "Filter the overview, or pick a Soldier to see their full record on this page.</p></div></div>";
     if (CH.data.source === "test") {
       h += '<div class="banner"><strong>Fictional test data.</strong> 30 made-up Soldiers (with duplicate report rows) so you can try the dashboard offline. Upload your two Excel files to replace this — nothing leaves this computer.</div>';
     } else if (!(CH.data.sets && CH.data.sets.personnel)) {
       h += '<div class="nodata"><div><strong>No personnel file loaded.</strong> Use Upload data and choose the roster report (and the address report if you have it).</div></div>';
     }
+    h += CH.homeFilterBar();
+    h += '<p class="scope" style="margin:-8px 0 14px">' + CH.num(c.n) + (c.n === (CH.data.roster || []).length ? "" : " of " + CH.num((CH.data.roster || []).length)) + " Soldiers match the current filters.</p>";
+    var pickVal = selected ? (selected.rank + "  " + selected.name) : "";
+    h += '<div class="panel" id="soldierFind"><h2>Find a Soldier</h2><p class="muted small" style="margin:-4px 0 10px">Type a name or open the list and pick someone to see every field and status flag below.</p>' +
+      '<div class="picker"><label class="grow">Soldier<input type="search" id="soldierSearch" placeholder="Type rank or name…" autocomplete="off" value="' + CH.esc(pickVal) + '"></label>' +
+      '<div class="picker-list" id="soldierList" hidden></div></div></div>';
+    if (selected) {
+      h += CH.personProfile(selected, { closable: true });
+    }
+
     var tiles = [
       ["roster", "t-ros", "i-ros", "Roster", CH.num(c.n) + " Soldiers · " + officers + " officers"],
       ["ets", "t-ets", "i-ets", "ETS / MRD", c.ets12 + " within 12 months"],
       ["retire", "t-ret", "i-ret", "Retirement", c.retNow + " eligible now · " + c.ret12 + " within 12 mo"],
-      ["aft", "t-aft", "i-aft", "AFT", c.aftFail ? c.aftFail + " failed" : "All passed"],
+      ["aft", "t-aft", "i-aft", "AFT", c.aftFail ? c.aftFail + " failed" : (c.n ? "All passed" : "No Soldiers")],
       ["tig", "t-tig", "i-tig", "Time in Grade", c.longTig + " at rank 4+ years"],
       ["schools", "t-sch", "i-sch", "Schools", "Highest MEL completed"],
       ["evals", "t-eval", "i-eval", "Evaluations", c.evalOver + " overdue or missing"],
@@ -1749,7 +1954,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
       return '<button class="tile ' + t[1] + '" type="button" data-go="' + t[0] + '"><span class="tic"><svg class="ic"><use href="#' + t[2] + '"/></svg></span><span class="tt">' + t[3] + '</span><span class="ts">' + t[4] + "</span></button>";
     }).join("") + "</div>";
     h += '<div class="kpis k6">' +
-      CH.kpi("info", "On the roster", CH.num(c.n), officers + " officers · " + (c.n - officers) + " enlisted") +
+      CH.kpi("info", "On the filter", CH.num(c.n), officers + " officers · " + (c.n - officers) + " enlisted") +
       CH.kpi(c.ets6 ? "warn" : "ok", "ETS / MRD in 6 months", CH.num(c.ets6), c.ets12 + " within 12 months", 'data-go="ets"') +
       CH.kpi(c.retNow ? "warn" : "ok", "Retirement eligible now", CH.num(c.retNow), c.ret12 + " within 12 months", 'data-go="retire"') +
       CH.kpi(c.aftFail ? "alert" : "ok", "AFT failures", CH.num(c.aftFail), "Most recent test", 'data-go="aft"') +
@@ -1780,6 +1985,9 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
     h += '<div class="row r2"><div class="panel"><h2>AFT result</h2><div class="chartbox sm"><canvas id="chAft"></canvas></div></div><div class="panel"><h2>Weapon qualification</h2><div class="chartbox sm"><canvas id="chWpn"></canvas></div></div></div>';
     root.innerHTML = h;
     CH.bindCommon(root, Home);
+    bindPicker(rows);
+    var prof = root.querySelector("[data-profile]");
+    if (prof && CH.state.selected) prof.scrollIntoView({ block: "nearest" });
     var passed = rows.filter(function (p) { return p.aft === "Passed"; }).length;
     var failed = c.aftFail, unknown = rows.filter(function (p) { return !p.aft; }).length;
     CH.chart("chAft", { type: "doughnut", data: { labels: ["Passed", "Failed", "No result"], datasets: [{ data: [passed, failed, unknown], backgroundColor: ["#16a34a", "#dc2626", "#cbd5e1"], borderWidth: 0 }] }, options: { plugins: { legend: { position: "bottom" } }, cutout: "62%" } });
@@ -1799,9 +2007,11 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
       if (cfg.kpis) h += cfg.kpis(rows);
       if (cfg.note) h += '<p class="pgnote">' + cfg.note + "</p>";
       if (!CH.state.pageSort[id] && cfg.sort) CH.state.pageSort[id] = { k: cfg.sort, dir: cfg.dir || "asc" };
-      h += '<div class="panel">' + CH.table(id, cfg.cols, rows, { title: cfg.tableTitle || title, expand: true, sort: cfg.sort, dir: cfg.dir, rowClass: cfg.rowClass }) + "</div>";
+      h += '<div class="panel">' + CH.table(id, cfg.cols, rows, { title: cfg.tableTitle || title, expand: true, sort: cfg.sort, dir: cfg.dir, rowClass: cfg.rowClass, hint: cfg.hint, tblClass: cfg.tblClass, noXScroll: cfg.noXScroll }) + "</div>";
       root.innerHTML = h;
       CH.bindCommon(root, CH.mods[id]);
+      var open = root.querySelector("tr.sdet");
+      if (open) open.scrollIntoView({ block: "nearest" });
     };
   }
 
@@ -1809,14 +2019,19 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
   CH.mods.roster.render = standardRender("roster", "i-ros", "Roster", {
     tone: "ros",
     sort: "name",
+    tblClass: "roster",
+    noXScroll: true,
+    hint: "Click any soldier, or the View button, to see their full record.",
     cols: [
-      RANK, NAME, MOS, BN, UIC, DOR,
-      { k: "expiration", lbl: "Expiration", val: function (p) { return p.expiration || ""; }, cell: function (p) { return p.expiration ? CH.esc(p.expirationType) + " " + CH.dateText(p.expiration) : "—"; } },
-      { k: "ret", lbl: "Retirement", cell: function (p) { return CH.dateText(p.ret); } },
-      { k: "aft", lbl: "AFT", cell: function (p) { return CH.aftPill(p.aft); } },
-      { k: "wpn", lbl: "Weapon", val: function (p) { return p.wpnRank || 0; }, cell: function (p) { return CH.wpnPill(p.wpn); } },
-      { k: "mel", lbl: "Highest MEL" },
-      { k: "eval", lbl: "Last eval", cell: function (p) { return CH.dateText(p.eval); } }
+      { k: "_view", lbl: "", nosort: true, cls: "col-view", cell: function (p) { return CH.viewCell(p); } },
+      Object.assign({}, RANK, { cls: "col-rank" }),
+      NAME,
+      Object.assign({}, MOS, { cls: "col-mos" }),
+      BN,
+      { k: "expiration", lbl: "Expiration", wrap: true, val: function (p) { return p.expiration || ""; }, cell: function (p) { return p.expiration ? CH.esc(p.expirationType) + " " + CH.dateText(p.expiration) : "—"; } },
+      { k: "aft", lbl: "AFT", cls: "col-aft", cell: function (p) { return CH.aftPill(p.aft); } },
+      { k: "wpn", lbl: "Weapon", cls: "col-wpn", val: function (p) { return p.wpnRank || 0; }, cell: function (p) { return CH.wpnPill(p.wpn); } },
+      { k: "mel", lbl: "Highest MEL", wrap: true }
     ]
   });
 
