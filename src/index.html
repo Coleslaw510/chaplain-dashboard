@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chaplain Corps Dashboard</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231e3a8a'/%3E%3Cpath d='M16 7v18M8 13h16' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+/*@@CSS@@*/
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 9.8V20h13V9.8"/><path d="M10 20v-5.5h4V20"/></symbol>
+    <symbol id="i-ros" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.8 19a5.2 5.2 0 0 1 10.4 0"/><circle cx="17" cy="9" r="2.4"/><path d="M16.2 14.5a4.4 4.4 0 0 1 5.3 4.5"/></symbol>
+    <symbol id="i-ets" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17"/><path d="M8 3v4M16 3v4"/><path d="M8 14.5h3.5M8 17.5h8"/></symbol>
+    <symbol id="i-ret" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3.2 2.2"/></symbol>
+    <symbol id="i-aft" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 5.6-7 10-7 10z"/></symbol>
+    <symbol id="i-tig" viewBox="0 0 24 24"><path d="M4 19h16"/><path d="M7 19V10h3v9M14 19V6h3v13"/></symbol>
+    <symbol id="i-sch" viewBox="0 0 24 24"><path d="M3 10 12 5l9 5-9 5-9-5z"/><path d="M7 12.2v4.2c0 1.3 2.2 3 5 3s5-1.7 5-3v-4.2"/><path d="M20.5 10.5V16"/></symbol>
+    <symbol id="i-eval" viewBox="0 0 24 24"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M8.5 8.5h7M8.5 12h7M8.5 15.5h4"/><path d="m9 3.5.4-1.5h5.2L15 3.5"/></symbol>
+    <symbol id="i-wpn" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 15V4"/><path d="m7.5 8.5 4.5-4.5 4.5 4.5"/><path d="M4 15v3.5A2.5 2.5 0 0 0 6.5 21h11a2.5 2.5 0 0 0 2.5-2.5V15"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></symbol>
+    <symbol id="i-cross" viewBox="0 0 24 24"><path d="M12 4v16M5 9h14"/></symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap bar">
+    <button class="brand" type="button" data-go="home" aria-label="Home">
+      <span class="mark"><svg class="ic"><use href="#i-cross"/></svg></span><span class="bname">Chaplain Corps</span>
+    </button>
+    <nav class="tabs" id="tabs" aria-label="Pages">
+      <button type="button" data-go="home"><svg class="ic"><use href="#i-home"/></svg><span>Home</span></button>
+      <button type="button" data-go="roster"><svg class="ic"><use href="#i-ros"/></svg><span>Roster</span></button>
+      <button type="button" data-go="ets"><svg class="ic"><use href="#i-ets"/></svg><span>ETS / MRD</span></button>
+      <button type="button" data-go="retire"><svg class="ic"><use href="#i-ret"/></svg><span>Retirement</span></button>
+      <button type="button" data-go="aft"><svg class="ic"><use href="#i-aft"/></svg><span>AFT</span></button>
+      <button type="button" data-go="tig"><svg class="ic"><use href="#i-tig"/></svg><span>Time in Grade</span></button>
+      <button type="button" data-go="schools"><svg class="ic"><use href="#i-sch"/></svg><span>Schools</span></button>
+      <button type="button" data-go="evals"><svg class="ic"><use href="#i-eval"/></svg><span>Evaluations</span></button>
+      <button type="button" data-go="weapons"><svg class="ic"><use href="#i-wpn"/></svg><span>Weapons</span></button>
+    </nav>
+    <div class="tools">
+      <span class="asof" id="asOf"></span>
+      <button class="btn primary" id="btnUpload" type="button" title="Choose the personnel report and/or the address report. Excel or CSV, recognised by headers."><svg class="ic"><use href="#i-upload"/></svg><span>Upload data</span></button>
+      <input type="file" id="fileInput" accept=".xlsx,.xlsm,.xls,.csv" multiple hidden>
+      <button class="iconbtn" id="btnInfo" type="button" title="Data details" aria-label="Data details" aria-controls="drawer" aria-expanded="false"><svg class="ic"><use href="#i-info"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap" id="main">
+  <section class="page" id="page-home" aria-label="Home"></section>
+  <section class="page" id="page-roster" hidden aria-label="Roster"></section>
+  <section class="page" id="page-ets" hidden aria-label="ETS and MRD"></section>
+  <section class="page" id="page-retire" hidden aria-label="Retirement"></section>
+  <section class="page" id="page-aft" hidden aria-label="AFT"></section>
+  <section class="page" id="page-tig" hidden aria-label="Time in Grade"></section>
+  <section class="page" id="page-schools" hidden aria-label="Schools"></section>
+  <section class="page" id="page-evals" hidden aria-label="Evaluations"></section>
+  <section class="page" id="page-weapons" hidden aria-label="Weapons"></section>
+</main>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" hidden aria-label="Data details">
+  <div class="dhead"><h2>Data details</h2><button class="iconbtn" id="btnClose" type="button" aria-label="Close">&times;</button></div>
+  <p class="dstate" id="dState"></p>
+  <div class="dactions">
+    <button class="btn primary sm" type="button" data-upload="1"><svg class="ic"><use href="#i-upload"/></svg>Upload files</button>
+    <button class="btn sm" id="btnSave" type="button" title="Download one HTML file with the current data built in">Save with data</button>
+    <button class="btn ghost sm" id="btnReset" type="button">Reset to test data</button>
+  </div>
+  <div class="dactions" id="dSamples"></div>
+  <h3>Datasets</h3>
+  <div class="tablewrap"><table class="grid files" id="tFiles"><thead><tr><th>Dataset</th><th>File</th><th class="num">Rows</th><th>Notes</th></tr></thead><tbody></tbody></table></div>
+  <details class="dsec" open><summary>Join and unmatched names</summary><div class="loadreport" id="dJoin"></div></details>
+  <details class="dsec" open><summary>Religion codes</summary><div class="loadreport" id="dRel"></div></details>
+  <details class="dsec"><summary>Columns each file needs</summary><div class="loadreport" id="dSchema"></div></details>
+  <details class="dsec"><summary>How the numbers work</summary>
+    <div class="loadreport">
+      <ul>
+        <li>The personnel report often repeats a Soldier once for every physical-fitness or weapon-qualification date. The dashboard keeps <strong>one row per Full Name</strong> and uses the <strong>most recent</strong> Physical Fitness Test Effective Date (and that row&rsquo;s AFT result) and the <strong>most recent</strong> Weapon Qualification Date (and that row&rsquo;s qualification). Other fields take the first non-blank value.</li>
+        <li>Soldier Job Code drops a leading <strong>E</strong> or <strong>O</strong> (O56A becomes 56A). Component (officer vs enlisted) is taken from that prefix when present, otherwise from rank. Officers use Mandatory Removal Date / RCP as their expiration; enlisted Soldiers use ETS.</li>
+        <li>Home Assignment Grade Entry Date is shown as <strong>Date of Rank</strong>. Time in grade is measured to the data as-of date. Four years or more is flagged; six years or more is a stronger flag.</li>
+        <li>The address report is joined by <strong>Last Name + First Name</strong> matching the start of Full Name (SMITH + JOHN matches SMITH JOHN DEAN). Case and extra spaces are ignored. Home address, city, state and ZIP are combined into one address. Preferred phone, home email and BN Name come from that report.</li>
+        <li>Religion Code is translated with the standard DoD/USMC manpower religious-preference list (BB is Baptist Bible Fellowship, NC is Primitive Methodist Church, and so on). Unknown codes are shown as entered; if the report also has a short description, that is shown too.</li>
+        <li>Weapon qualifications all count as passing. Ranking is Expert (highest), then Sharpshooter, then Marksman.</li>
+        <li>AFT values are normalised to Passed or Failed. Evaluation currency is flagged after 12 months and more strongly after 15 months (or if the date is missing). Weapon qualification is flagged after 12 months.</li>
+        <li>Files are recognised by their header row, not their name. Column names are matched ignoring case, spacing and punctuation. A title row above the headers is skipped.</li>
+        <li>Everything runs in this file on your computer. Nothing is uploaded to a server. A &ldquo;Save with data&rdquo; file contains whatever you loaded &mdash; treat it with the same protection as the source reports.</li>
+      </ul>
+    </div>
+  </details>
+</aside>
+<div class="dropover" id="dropOver" hidden><div><svg class="ic big"><use href="#i-upload"/></svg><p>Drop files to load</p></div></div>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>window.__dashSrc = document.documentElement.outerHTML; /* page markup before any script runs; used by "Save with data" */</script>
+<!--@@SCRIPTS@@-->
+</body>
+</html>

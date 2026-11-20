@@ -1,0 +1,56 @@
+/* ---------- Chaplain Corps additions on top of the G3 / Aviation light theme ---------- */
+:root{--ets:#d97706;--ret:#0d9488;--aftc:#be123c;--tig:#7c3aed;--sch:#9333ea;--eval:#4f46e5;--wpn:#ea580c;--ros:#475569}
+.t-ets{--c:var(--ets)}.t-ret{--c:var(--ret)}.t-aft{--c:var(--aftc)}.t-tig{--c:var(--tig)}
+.t-sch{--c:var(--sch)}.t-eval{--c:var(--eval)}.t-wpn{--c:var(--wpn)}.t-ros{--c:var(--ros)}
+.tiles.t8{grid-template-columns:repeat(8,1fr);gap:12px}
+.tiles.t8 .tile{padding:16px 14px 14px}
+.tiles.t8 .tile .tic{width:46px;height:46px;border-radius:14px}.tiles.t8 .tile .tic svg.ic{width:25px;height:25px}
+.tiles.t8 .tile .tt{font-size:.98rem}.tiles.t8 .tile .ts{font-size:.8rem}
+.overview.o3{grid-template-columns:repeat(3,1fr)}
+.kpi.alert{--st:#dc2626}.kpi.alert .val{color:var(--bad)}
+.kpi.warn{--st:#d97706}.kpi.warn .val{color:var(--warn)}
+.kpi.ok{--st:#16a34a}
+.kpi.info{--st:#2563eb}
+.wpill,.apill,.qpill{display:inline-block;font-size:.72rem;font-weight:750;border-radius:999px;padding:1px 8px;white-space:nowrap}
+.apill.pass,.wpill.ok{background:var(--goodbg);color:var(--good)}
+.apill.fail,.wpill.bad{background:var(--badbg);color:var(--bad)}
+.apill.na,.wpill.na,.qpill.na{background:var(--line2);color:var(--muted)}
+.qpill.expert{background:#dcfce7;color:#166534}
+.qpill.sharp{background:#dbeafe;color:#1d4ed8}
+.qpill.marks{background:#f1f5f9;color:#334155}
+.duepill{display:inline-block;font-size:.72rem;font-weight:750;border-radius:999px;padding:1px 8px;white-space:nowrap}
+.duepill.now,.duepill.over{background:var(--badbg);color:var(--bad)}
+.duepill.m6{background:#ffedd5;color:#9a3412}
+.duepill.m12{background:var(--warnbg);color:var(--warn)}
+.duepill.ok{background:var(--line2);color:var(--muted)}
+table.grid tr.fail td{background:#fef6f6}
+table.grid tr.due td{background:#fffbeb}
+table.grid tr.overdue td{background:#fef6f6}
+table.grid tr.longtig td{background:#faf5ff}
+table.grid td.wrapc{white-space:normal;min-width:160px;max-width:280px}
+table.grid td.namec{font-weight:650}
+.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.8rem}
+.namebtn{border:0;background:none;padding:0;font:inherit;font-weight:650;color:var(--accent2);cursor:pointer;text-align:left}
+.namebtn:hover{text-decoration:underline}
+tr.sdet td{background:#f8fafc;white-space:normal}
+.detgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px 18px;padding:6px 2px}
+.detgrid div{display:flex;flex-direction:column;min-width:0}.detgrid span{font-size:.7rem;color:#64748b;text-transform:uppercase;letter-spacing:.03em}
+.detgrid b{font-weight:600;font-size:.84rem;word-break:break-word;overflow-wrap:anywhere}
+.relcode{font-size:.72rem;color:var(--soft);font-family:ui-monospace,Menlo,monospace;margin-left:6px}
+.banner{background:#fffbeb;border:1px solid #fcd34d;color:#92400e;border-radius:12px;padding:10px 14px;margin:0 0 16px;font-size:.88rem}
+.banner strong{font-weight:750}
+.hctl{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.chartbox.sm{height:220px}
+.listrow{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px solid var(--line2);font-size:.88rem;align-items:baseline}
+.listrow:last-child{border-bottom:0}
+.listrow .nm{font-weight:650}
+.listrow .meta{color:var(--muted);font-size:.8rem}
+.clickrow{cursor:pointer}
+.nodata{padding:22px;text-align:center;color:#64748b;background:#f8fafc;border-radius:10px;border:1px dashed #cbd5e1}
+.pgnote{margin:-4px 0 14px;padding:7px 12px;border-radius:9px;background:#f1f5f9;border:1px dashed #cbd5e1;color:#475569;font-size:.8rem}
+.loadreport code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.78rem}
+.loadreport .ok{color:#15803d}.loadreport .err{color:#b91c1c}.loadreport .warn{color:#b45309}
+.tabs button{padding:8px 10px}
+@media(max-width:1520px){.asof{display:none}}
+@media(max-width:1280px){.tabs span{display:none}.tabs button{padding:8px 10px}.tiles.t8{grid-template-columns:repeat(4,1fr)}.overview.o3{grid-template-columns:1fr}}
+@media(max-width:1000px){.tiles.t8{grid-template-columns:repeat(2,1fr)}.kpis.k6{grid-template-columns:repeat(2,1fr)}}

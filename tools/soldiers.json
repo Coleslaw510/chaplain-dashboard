@@ -1,0 +1,1494 @@
+[
+  {
+    "rank": "COL",
+    "last": "HALE",
+    "first": "PATRICIA",
+    "mid": "ANN",
+    "rel": "62",
+    "job": "O56A",
+    "dor": "2020-05-01",
+    "uic": "HHC",
+    "asi": "5K",
+    "smos": "",
+    "diems": "1998-06-12",
+    "ets": null,
+    "mrd": "2028-05-31",
+    "ed_recent": "Senior Service College",
+    "ed_stat": "Complete",
+    "mel": "MEL 1",
+    "eval": "2026-08-15",
+    "ret": "2027-03-20",
+    "aft": [
+      "Passed",
+      "2026-09-08"
+    ],
+    "wpn": [
+      "Expert",
+      "2026-04-12"
+    ],
+    "pft_hist": [
+      [
+        "2025-03-10",
+        "Passed"
+      ],
+      [
+        "2025-09-18",
+        "Passed"
+      ]
+    ],
+    "wpn_hist": [
+      [
+        "2024-04-20",
+        "Expert"
+      ],
+      [
+        "2025-04-15",
+        "Sharpshooter"
+      ]
+    ],
+    "addr": "1842 Sample Oak Ave",
+    "city": "Des Moines",
+    "st": "IA",
+    "zip": "50309",
+    "phone": "515-555-0101",
+    "email": "patricia.hale@example.com"
+  },
+  {
+    "rank": "LTC",
+    "last": "BROOKS",
+    "first": "DANIEL",
+    "mid": "WAYNE",
+    "rel": "08",
+    "job": "O56A",
+    "dor": "2023-02-01",
+    "uic": "IN",
+    "asi": "",
+    "smos": "",
+    "diems": "2004-05-20",
+    "ets": null,
+    "mrd": "2028-11-30",
+    "ed_recent": "ILE",
+    "ed_stat": "Complete",
+    "mel": "MEL 4",
+    "eval": "2026-06-02",
+    "ret": "2027-09-10",
+    "aft": [
+      "Passed",
+      "2026-08-22"
+    ],
+    "wpn": [
+      "Expert",
+      "2026-03-03"
+    ],
+    "pft_hist": [
+      [
+        "2025-02-14",
+        "Passed"
+      ],
+      [
+        "2025-08-19",
+        "Failed"
+      ]
+    ],
+    "wpn_hist": [
+      [
+        "2024-03-08",
+        "Sharpshooter"
+      ],
+      [
+        "2025-03-01",
+        "Expert"
+      ]
+    ],
+    "addr": "55 Test Ridge Ct",
+    "city": "Ankeny",
+    "st": "IA",
+    "zip": "50023",
+    "phone": "515-555-0102",
+    "email": "daniel.brooks@example.com"
+  },
+  {
+    "rank": "LTC",
+    "last": "REED",
+    "first": "MARIA",
+    "mid": "ELISA",
+    "rel": "NA",
+    "job": "O56A",
+    "dor": "2022-11-01",
+    "uic": "AV",
+    "asi": "",
+    "smos": "56A",
+    "diems": "2003-08-04",
+    "ets": null,
+    "mrd": "2027-04-10",
+    "ed_recent": "ILE",
+    "ed_stat": "Complete",
+    "mel": "MEL 4",
+    "eval": "2026-07-21",
+    "ret": "2028-01-15",
+    "aft": [
+      "Passed",
+      "2026-10-05"
+    ],
+    "wpn": [
+      "Sharpshooter",
+      "2026-05-19"
+    ],
+    "pft_hist": [
+      [
+        "2025-04-02",
+        "Passed"
+      ]
+    ],
+    "wpn_hist": [
+      [
+        "2024-05-11",
+        "Marksman"
+      ],
+      [
+        "2025-05-16",
+        "Sharpshooter"
+      ]
+    ],
+    "addr": "902 Fictional Prairie Dr",
+    "city": "West Des Moines",
+    "st": "IA",
+    "zip": "50266",
+    "phone": "515-555-0103",
+    "email": "maria.reed@example.com"
+  },
+  {
+    "rank": "MAJ",
+    "last": "KLINE",
+    "first": "ROBERT",
+    "mid": "JAMES",
+    "rel": "01",
+    "job": "O56A",
+    "dor": "2021-08-15",
+    "uic": "BSB",
+    "asi": "",
+    "smos": "",
+    "diems": "2008-01-10",
+    "ets": null,
+    "mrd": "2031-08-15",
+    "ed_recent": "ILE",
+    "ed_stat": "Enrolled",
+    "mel": "MEL 6",
+    "eval": "2026-03-12",
+    "ret": "2028-01-10",
+    "aft": [
+      "Failed",
+      "2026-10-12"
+    ],
+    "wpn": [
+      "Expert",
+      "2026-02-28"
+    ],
+    "pft_hist": [
+      [
+        "2025-03-09",
+        "Passed"
+      ],
+      [
+        "2025-09-14",
+        "Passed"
+      ]
+    ],
+    "wpn_hist": [
+      [
+        "2024-02-20",
+        "Sharpshooter"
+      ],
+      [
+        "2025-02-22",
+        "Expert"
+      ]
+    ],
+    "addr": "17 Mockingbird Lane",
+    "city": "Johnston",
+    "st": "IA",
+    "zip": "50131",
+    "phone": "515-555-0104",
+    "email": "robert.kline@example.com"
+  },
+  {
+    "rank": "MAJ",
+    "last": "SINGH",
+    "first": "AMARPREET",
+    "mid": "KAUR",
+    "rel": "49",
+    "job": "O56A",
+    "dor": "2024-03-01",
+    "uic": "CAV",
+    "asi": "7E",
+    "smos": "",
+    "diems": "2009-06-18",
+    "ets": null,
+    "mrd": "2032-06-18",
+    "ed_recent": "Chaplain Captains Career Course",
+    "ed_stat": "Complete",
+    "mel": "MEL 6",
+    "eval": "2025-04-01",
+    "ret": "2029-06-18",
+    "aft": [
+      "Passed",
+      "2026-07-07"
+    ],
+    "wpn": [
+      "Marksman",
+      "2026-01-20"
+    ],
+    "pft_hist": [
+      [
+        "2025-01-15",
+        "Passed"
+      ],
+      [
+        "2025-07-11",
+        "Passed"
+      ]
+    ],
+    "wpn_hist": [
+      [
+        "2025-01-18",
+        "Marksman"
+      ]
+    ],
+    "addr": "4400 Demo Creek Rd",
+    "city": "Urbandale",
+    "st": "IA",
+    "zip": "50322",
+    "phone": "515-555-0105",
+    "email": "amarpreet.singh@example.com"
+  },
+  {
+    "rank": "CPT",
+    "last": "OCONNOR",
+    "first": "BRIAN",
+    "mid": "THOMAS",
+    "rel": "62",
+    "job": "O56A",
+    "dor": "2023-07-01",
+    "uic": "IN",
+    "asi": "",
+    "smos": "",
+    "diems": "2015-05-22",
+    "ets": null,
+    "mrd": "2035-05-22",
+    "ed_recent": "Chaplain Captains Career Course",
+    "ed_stat": "Complete",
+    "mel": "MEL 6",
+    "eval": "2026-06-30",
+    "ret": "2035-05-22",
+    "aft": [
+      "Passed",
+      "2026-09-01"
+    ],
+    "wpn": [
+      "Expert",
+      "2026-06-14"
+    ],
+    "pft_hist": [
+      [
+        "2025-03-20",
+        "Passed"
+      ],
+      [
+        "2025-09-02",
+        "Passed"
+      ]
+    ],
+    "wpn_hist": [
+      [
+        "2024-06-10",
+        "Sharpshooter"
+      ],
+      [
+        "2025-06-12",
+        "Expert"
+      ]
+    ],
+    "addr": "210 Placeholder Blvd",
+    "city": "Des Moines",
+    "st": "IA",
+    "zip": "50312",
+    "phone": "515-555-0106",
+    "email": "brian.oconnor@example.com"
+  },
+  {
+    "rank": "CPT",
+    "last": "WASHINGTON",
+    "first": "LEAH",
+    "mid": "MONIQUE",
+    "rel": "BB",
+    "job": "O56A",
+    "dor": "2024-01-15",
+    "uic": "AV",
+    "asi": "",
+    "smos": "",
+    "diems": "2016-08-08",
+    "ets": null,
+    "mrd": "2036-08-08",
+    "ed_recent": "Chaplain Captains Career Course",
+    "ed_stat": "Complete",
+    "mel": "MEL 6",
+    "eval": "2026-01-22",
+    "ret": "2036-08-08",
+    "aft": [
+      "Failed",
+      "2026-10-28"
+    ],
+    "wpn": [
+      "Marksman",
+      "2026-03-09"
+    ],
+    "pft_hist": [
+      [
+        "2025-04-18",
+        "Passed"
+      ],
+      [
+        "2025-10-21",
+        "Failed"
+      ]
+    ],
+    "wpn_hist": [
+      [
+        "2024-03-05",
+        "Marksman"
+      ],
+      [
+        "2025-03-07",
+        "Marksman"
+      ]
+    ],
+    "addr": "88 Example Parkway",
+    "city": "Altoona",
+    "st": "IA",
+    "zip": "50009",
+    "phone": "515-555-0107",
+    "email": "leah.washington@example.com"
+  },
+  {
+    "rank": "CPT",
+    "last": "NGUYEN",
+    "first": "MINH",
+    "mid": "ANH",
+    "rel": "14",
+    "job": "O56A",
+    "dor": "2022-12-01",
+    "uic": "BSB",
+    "asi": "",
+    "smos": "",
+    "diems": "2014-09-30",
+    "ets": null,
+    "mrd": "2034-09-30",
+    "ed_recent": "ILE",
+    "ed_stat": "Scheduled",
+    "mel": "MEL 6",
+    "eval": "2026-09-05",
+    "ret": "2034-09-30",
+    "aft": [
+      "Passed",
+      "2026-06-16"
+    ],
+    "wpn": [
+      "Sharpshooter",
+      "2026-08-02"
+    ],
+    "pft_hist": [
+      [
+        "2025-06-10",
+        "Passed"
+      ]
+    ],
+    "wpn_hist": [
+      [
+        "2025-08-01",
+        "Marksman"
+      ]
+    ],
+    "addr": "12 Lotus Test Cir",
+    "city": "Waukee",
+    "st": "IA",
+    "zip": "50263",
+    "phone": "515-555-0108",
+    "email": "minh.nguyen@example.com"
+  },
+  {
+    "rank": "CPT",
+    "last": "ALVAREZ",
+    "first": "DIEGO",
+    "mid": "LUIS",
+    "rel": "48",
+    "job": "O56A",
+    "dor": "2023-04-01",
+    "uic": "CAV",
+    "asi": "",
+    "smos": "",
+    "diems": "2015-11-03",
+    "ets": null,
+    "mrd": "2035-11-03",
+    "ed_recent": "Chaplain Captains Career Course",
+    "ed_stat": "Complete",
+    "mel": "MEL 6",
+    "eval": "2026-04-18",
+    "ret": "2035-11-03",
+    "aft": [
+      "Passed",
+      "2026-08-09"
+    ],
+    "wpn": [
+      "Expert",
+      "2026-07-21"
+    ],
+    "pft_hist": [
+      [
+        "2025-02-28",
+        "Passed"
+      ],
+      [
+        "2025-08-08",
+        "Passed"
+      ]
+    ],
+    "wpn_hist": [
+      [
+        "2024-07-19",
+        "Sharpshooter"
+      ],
+      [
+        "2025-07-20",
+        "Expert"
+      ]
+    ],
+    "addr": "300 Crescent Sample St",
+    "city": "Clive",
+    "st": "IA",
+    "zip": "50325",
+    "phone": "515-555-0109",
+    "email": "diego.alvarez@example.com"
+  },
+  {
+    "rank": "1LT",
+    "last": "BERG",
+    "first": "ERIK",
+    "mid": "JOHAN",
+    "rel": "40",
+    "job": "O56A",
+    "dor": "2025-06-01",
+    "uic": "IN2",
+    "asi": "",
+    "smos": "",
+    "diems": "2021-05-15",
+    "ets": null,
+    "mrd": "2041-05-15",
+    "ed_recent": "Chaplain Basic Officer Leader Course",
+    "ed_stat": "Complete",
+    "mel": "MEL 7",
+    "eval": "2026-05-20",
+    "ret": "2041-05-15",
+    "aft": [
+      "Passed",
+      "2026-09-14"
+    ],
+    "wpn": [
+      "Sharpshooter",
+      "2026-02-11"
+    ],
+    "pft_hist": [
+      [
+        "2025-09-12",
+        "Passed"
+      ]
+    ],
+    "wpn_hist": [
+      [
+        "2025-02-10",
+        "Marksman"
+      ]
+    ],
+    "addr": "76 Northern Lights Ave",
+    "city": "Ames",
+    "st": "IA",
+    "zip": "50010",
+    "phone": "515-555-0110",
+    "email": "erik.berg@example.com"
+  },
+  {
+    "rank": "1LT",
+    "last": "PATEL",
+    "first": "ANIKA",
+    "mid": "RAJ",
+    "rel": "01",
+    "job": "O56A",
+    "dor": "2025-01-15",
+    "uic": "HHC",
+    "asi": "",
+    "smos": "",
+    "diems": "2020-08-01",
+    "ets": null,
+    "mrd": "2040-08-01",
+    "ed_recent": "Chaplain Basic Officer Leader Course",
+    "ed_stat": "Complete",
+    "mel": "MEL 7",
+    "eval": "2026-01-10",
+    "ret": "2040-08-01",
+    "aft": [
+      "Passed",
+      "2026-07-25"
+    ],
+    "wpn": [
+      "Expert",
+      "2026-04-04"
+    ],
+    "pft_hist": [
+      [
+        "2025-07-20",
+        "Passed"
+      ]
+    ],
+    "wpn_hist": [
+      [
+        "2025-04-03",
+        "Sharpshooter"
+      ]
+    ],
+    "addr": "9 Maple Demo Way",
+    "city": "Des Moines",
+    "st": "IA",
+    "zip": "50310",
+    "phone": "515-555-0111",
+    "email": "anika.patel@example.com"
+  },
+  {
+    "rank": "CPT",
+    "last": "FOSTER",
+    "first": "JILLIAN",
+    "mid": "MAE",
+    "rel": "58",
+    "job": "O56A",
+    "dor": "2022-06-01",
+    "uic": "AV",
+    "asi": "5K",
+    "smos": "",
+    "diems": "2013-04-12",
+    "ets": null,
+    "mrd": "2033-04-12",
+    "ed_recent": "ILE",
+    "ed_stat": "Complete",
+    "mel": "MEL 4",
+    "eval": "2026-05-08",
+    "ret": "2033-04-12",
+    "aft": [
+      "Passed",
+      "2026-08-30"
+    ],
+    "wpn": [
+      "Expert",
+      "2026-09-16"
+    ],
+    "pft_hist": [
+      [
+        "2025-03-01",
+        "Passed"
+      ],
+      [
+        "2025-08-28",
+        "Passed"
+      ]
+    ],
+    "wpn_hist": [
+      [
+        "2024-09-14",
+        "Expert"
+      ],
+      [
+        "2025-09-15",
+        "Expert"
+      ]
+    ],
+    "addr": "1501 Willow Test Trl",
+    "city": "Grimes",
+    "st": "IA",
+    "zip": "50111",
+    "phone": "515-555-0112",
+    "email": "jillian.foster@example.com"
+  },
+  {
+    "rank": "MAJ",
+    "last": "COHEN",
+    "first": "DAVID",
+    "mid": "AARON",
+    "rel": "36",
+    "job": "O56A",
+    "dor": "2023-09-01",
+    "uic": "HHC",
+    "asi": "",
+    "smos": "",
+    "diems": "2007-07-07",
+    "ets": null,
+    "mrd": "2030-07-07",
+    "ed_recent": "ILE",
+    "ed_stat": "Complete",
+    "mel": "MEL 4",
+    "eval": "2026-08-01",
+    "ret": "2027-07-07",
+    "aft": [
+      "Passed",
+      "2026-06-03"
+    ],
+    "wpn": [
+      "Sharpshooter",
+      "2026-01-09"
+    ],
+    "pft_hist": [
+      [
+        "2025-06-02",
+        "Passed"
+      ]
+    ],
+    "wpn_hist": [
+      [
+        "2025-01-08",
+        "Sharpshooter"
+      ]
+    ],
+    "addr": "64 Cedar Specimen Rd",
+    "city": "West Des Moines",
+    "st": "IA",
+    "zip": "50265",
+    "phone": "515-555-0113",
+    "email": "david.cohen@example.com"
+  },
+  {
+    "rank": "CPT",
+    "last": "OKONKWO",
+    "first": "CHIDI",
+    "mid": "EMEKA",
+    "rel": "NC",
+    "job": "O56A",
+    "dor": "2024-08-01",
+    "uic": "IN",
+    "asi": "",
+    "smos": "",
+    "diems": "2017-02-14",
+    "ets": null,
+    "mrd": "2037-02-14",
+    "ed_recent": "Chaplain Captains Career Course",
+    "ed_stat": "Complete",
+    "mel": "MEL 6",
+    "eval": "2026-07-14",
+    "ret": "2037-02-14",
+    "aft": [
+      "Passed",
+      "2026-10-02"
+    ],
+    "wpn": [
+      "Expert",
+      "2026-05-27"
+    ],
+    "pft_hist": [
+      [
+        "2025-04-04",
+        "Passed"
+      ],
+      [
+        "2025-10-01",
+        "Passed"
+      ]
+    ],
+    "wpn_hist": [
+      [
+        "2025-05-26",
+        "Sharpshooter"
+      ]
+    ],
+    "addr": "818 Independence Sample Pl",
+    "city": "Indianola",
+    "st": "IA",
+    "zip": "50125",
+    "phone": "515-555-0114",
+    "email": "chidi.okonkwo@example.com"
+  },
+  {
+    "rank": "1LT",
+    "last": "YATES",
+    "first": "COLIN",
+    "mid": "REED",
+    "rel": "ZZ",
+    "job": "O56A",
+    "dor": "2025-10-01",
+    "uic": "BSB",
+    "asi": "",
+    "smos": "",
+    "diems": "2022-01-06",
+    "ets": null,
+    "mrd": "2042-01-06",
+    "ed_recent": "Chaplain Basic Officer Leader Course",
+    "ed_stat": "Complete",
+    "mel": "MEL 7",
+    "eval": null,
+    "ret": "2042-01-06",
+    "aft": [
+      "Passed",
+      "2026-05-19"
+    ],
+    "wpn": [
+      "Marksman",
+      "2026-06-08"
+    ],
+    "pft_hist": [
+      [
+        "2025-11-15",
+        "Passed"
+      ]
+    ],
+    "wpn_hist": [],
+    "addr": "4 Quarry Test Ln",
+    "city": "Norwalk",
+    "st": "IA",
+    "zip": "50211",
+    "phone": "515-555-0115",
+    "email": "colin.yates@example.com"
+  },
+  {
+    "rank": "CPT",
+    "last": "MORALES",
+    "first": "SOFIA",
+    "mid": "IRENE",
+    "rel": "62",
+    "job": "O56A",
+    "dor": "2023-10-01",
+    "uic": "CAV",
+    "asi": "",
+    "smos": "",
+    "diems": "2016-03-21",
+    "ets": null,
+    "mrd": "2036-03-21",
+    "ed_recent": "Chaplain Captains Career Course",
+    "ed_stat": "Complete",
+    "mel": "MEL 6",
+    "eval": "2026-09-28",
+    "ret": "2036-03-21",
+    "aft": [
+      "Passed",
+      "2026-09-20"
+    ],
+    "wpn": [
+      "Expert",
+      "2026-08-18"
+    ],
+    "pft_hist": [
+      [
+        "2025-03-22",
+        "Passed"
+      ],
+      [
+        "2025-09-19",
+        "Passed"
+      ]
+    ],
+    "wpn_hist": [
+      [
+        "2025-08-17",
+        "Expert"
+      ]
+    ],
+    "addr": "2200 Hacienda Demo Dr",
+    "city": "Des Moines",
+    "st": "IA",
+    "zip": "50315",
+    "phone": "515-555-0116",
+    "email": "sofia.morales@example.com"
+  },
+  {
+    "rank": "LTC",
+    "last": "WHITAKER",
+    "first": "JAMES",
+    "mid": "EARL",
+    "rel": "08",
+    "job": "O56A",
+    "dor": "2020-01-10",
+    "uic": "IN",
+    "asi": "",
+    "smos": "",
+    "diems": "2001-09-11",
+    "ets": null,
+    "mrd": "2027-09-30",
+    "ed_recent": "Senior Service College",
+    "ed_stat": "Complete",
+    "mel": "MEL 1",
+    "eval": "2026-02-11",
+    "ret": "2028-09-11",
+    "aft": [
+      "Passed",
+      "2026-04-27"
+    ],
+    "wpn": [
+      "Sharpshooter",
+      "2025-12-14"
+    ],
+    "pft_hist": [
+      [
+        "2025-04-25",
+        "Passed"
+      ],
+      [
+        "2025-10-26",
+        "Passed"
+      ]
+    ],
+    "wpn_hist": [
+      [
+        "2024-12-12",
+        "Sharpshooter"
+      ]
+    ],
+    "addr": "31 Red Oak Specimen St",
+    "city": "Ankeny",
+    "st": "IA",
+    "zip": "50021",
+    "phone": "515-555-0117",
+    "email": "james.whitaker@example.com"
+  },
+  {
+    "rank": "CPT",
+    "last": "DENVER",
+    "first": "ASHLEY",
+    "mid": "JO",
+    "rel": "13",
+    "job": "O56A",
+    "dor": "2024-05-01",
+    "uic": "HHC",
+    "asi": "",
+    "smos": "",
+    "diems": "2018-06-25",
+    "ets": null,
+    "mrd": "2038-06-25",
+    "ed_recent": "Chaplain Captains Career Course",
+    "ed_stat": "Complete",
+    "mel": "MEL 6",
+    "eval": "2026-04-04",
+    "ret": "2038-06-25",
+    "aft": [
+      "Passed",
+      "2026-10-15"
+    ],
+    "wpn": [
+      "Sharpshooter",
+      "2026-03-22"
+    ],
+    "pft_hist": [
+      [
+        "2025-04-14",
+        "Passed"
+      ],
+      [
+        "2025-10-16",
+        "Passed"
+      ]
+    ],
+    "wpn_hist": [
+      [
+        "2025-03-21",
+        "Marksman"
+      ]
+    ],
+    "addr": "675 Horizon Sample Way",
+    "city": "Johnston",
+    "st": "IA",
+    "zip": "50131",
+    "phone": "515-555-0118",
+    "email": "ashley.denver@example.com"
+  },
+  {
+    "rank": "SFC",
+    "last": "RAMIREZ",
+    "first": "JOSE",
+    "mid": "ANTONIO",
+    "rel": "62",
+    "job": "E56M",
+    "dor": "2022-04-01",
+    "uic": "IN",
+    "asi": "",
+    "smos": "92Y",
+    "diems": "2009-08-20",
+    "ets": "2027-02-28",
+    "mrd": null,
+    "ed_recent": "Senior Leader Course",
+    "ed_stat": "Complete",
+    "mel": "SLC",
+    "eval": "2026-08-08",
+    "ret": "2029-08-20",
+    "aft": [
+      "Passed",
+      "2026-09-03"
+    ],
+    "wpn": [
+      "Expert",
+      "2026-05-05"
+    ],
+    "pft_hist": [
+      [
+        "2025-03-05",
+        "Passed"
+      ],
+      [
+        "2025-09-04",
+        "Passed"
+      ]
+    ],
+    "wpn_hist": [
+      [
+        "2024-05-04",
+        "Expert"
+      ],
+      [
+        "2025-05-06",
+        "Expert"
+      ]
+    ],
+    "addr": "19 Fiesta Test Ct",
+    "city": "Des Moines",
+    "st": "IA",
+    "zip": "50313",
+    "phone": "515-555-0119",
+    "email": "jose.ramirez@example.com"
+  },
+  {
+    "rank": "SSG",
+    "last": "BENNETT",
+    "first": "KAYLA",
+    "mid": "RENEE",
+    "rel": "08",
+    "job": "E56M",
+    "dor": "2023-06-01",
+    "uic": "AV",
+    "asi": "",
+    "smos": "",
+    "diems": "2014-02-03",
+    "ets": "2027-07-20",
+    "mrd": null,
+    "ed_recent": "Advanced Leader Course",
+    "ed_stat": "Complete",
+    "mel": "ALC",
+    "eval": "2026-06-16",
+    "ret": "2034-02-03",
+    "aft": [
+      "Failed",
+      "2026-10-20"
+    ],
+    "wpn": [
+      "Sharpshooter",
+      "2026-04-30"
+    ],
+    "pft_hist": [
+      [
+        "2025-04-19",
+        "Passed"
+      ],
+      [
+        "2025-10-18",
+        "Passed"
+      ]
+    ],
+    "wpn_hist": [
+      [
+        "2025-04-29",
+        "Marksman"
+      ]
+    ],
+    "addr": "402 Larkspur Demo Ave",
+    "city": "Waukee",
+    "st": "IA",
+    "zip": "50263",
+    "phone": "515-555-0120",
+    "email": "kayla.bennett@example.com"
+  },
+  {
+    "rank": "SGT",
+    "last": "HOLLIS",
+    "first": "MARK",
+    "mid": "EUGENE",
+    "rel": "70",
+    "job": "E56M",
+    "dor": "2024-02-01",
+    "uic": "BSB",
+    "asi": "",
+    "smos": "",
+    "diems": "2018-10-10",
+    "ets": "2027-10-01",
+    "mrd": null,
+    "ed_recent": "Basic Leader Course",
+    "ed_stat": "Complete",
+    "mel": "BLC",
+    "eval": "2026-02-20",
+    "ret": "2038-10-10",
+    "aft": [
+      "Passed",
+      "2026-08-11"
+    ],
+    "wpn": [
+      "Marksman",
+      "2026-07-02"
+    ],
+    "pft_hist": [
+      [
+        "2025-08-10",
+        "Passed"
+      ]
+    ],
+    "wpn_hist": [
+      [
+        "2025-07-01",
+        "Marksman"
+      ]
+    ],
+    "addr": "8 Stonebridge Sample Rd",
+    "city": "Altoona",
+    "st": "IA",
+    "zip": "50009",
+    "phone": "515-555-0121",
+    "email": "mark.hollis@example.com"
+  },
+  {
+    "rank": "SGT",
+    "last": "CHOI",
+    "first": "JIN",
+    "mid": "WOO",
+    "rel": "13",
+    "job": "E56M",
+    "dor": "2022-04-01",
+    "uic": "CAV",
+    "asi": "",
+    "smos": "56M",
+    "diems": "2016-05-05",
+    "ets": "2028-05-05",
+    "mrd": null,
+    "ed_recent": "Basic Leader Course",
+    "ed_stat": "Complete",
+    "mel": "BLC",
+    "eval": "2026-03-28",
+    "ret": "2036-05-05",
+    "aft": [
+      "Passed",
+      "2026-09-09"
+    ],
+    "wpn": [
+      "Expert",
+      "2026-02-16"
+    ],
+    "pft_hist": [
+      [
+        "2025-03-08",
+        "Passed"
+      ],
+      [
+        "2025-09-08",
+        "Passed"
+      ]
+    ],
+    "wpn_hist": [
+      [
+        "2024-02-15",
+        "Sharpshooter"
+      ],
+      [
+        "2025-02-17",
+        "Expert"
+      ]
+    ],
+    "addr": "27 Seoul Test Way",
+    "city": "Ames",
+    "st": "IA",
+    "zip": "50014",
+    "phone": "515-555-0122",
+    "email": "jin.choi@example.com"
+  },
+  {
+    "rank": "SPC",
+    "last": "MARTIN",
+    "first": "TYLER",
+    "mid": "SCOTT",
+    "rel": "01",
+    "job": "E56M",
+    "dor": "2025-08-01",
+    "uic": "IN2",
+    "asi": "",
+    "smos": "",
+    "diems": "2023-08-15",
+    "ets": "2027-04-15",
+    "mrd": null,
+    "ed_recent": "Religious Affairs Specialist AIT",
+    "ed_stat": "Complete",
+    "mel": "AIT",
+    "eval": "2026-07-01",
+    "ret": null,
+    "aft": [
+      "Passed",
+      "2026-10-08"
+    ],
+    "wpn": [
+      "Marksman",
+      "2026-09-01"
+    ],
+    "pft_hist": [
+      [
+        "2026-04-08",
+        "Passed"
+      ]
+    ],
+    "wpn_hist": [],
+    "addr": "500 Rookie Sample Blvd",
+    "city": "Des Moines",
+    "st": "IA",
+    "zip": "50317",
+    "phone": "515-555-0123",
+    "email": "tyler.martin@example.com"
+  },
+  {
+    "rank": "SPC",
+    "last": "GRANGER",
+    "first": "ANNIE",
+    "mid": "LAUREL",
+    "rel": "NA",
+    "job": "E56M",
+    "dor": "2024-11-01",
+    "uic": "AV",
+    "asi": "",
+    "smos": "",
+    "diems": "2022-11-20",
+    "ets": "2028-11-20",
+    "mrd": null,
+    "ed_recent": "Religious Affairs Specialist AIT",
+    "ed_stat": "Complete",
+    "mel": "AIT",
+    "eval": "2026-10-01",
+    "ret": null,
+    "aft": [
+      "Passed",
+      "2026-06-21"
+    ],
+    "wpn": [
+      "Sharpshooter",
+      "2026-05-13"
+    ],
+    "pft_hist": [
+      [
+        "2025-12-20",
+        "Passed"
+      ]
+    ],
+    "wpn_hist": [
+      [
+        "2025-05-12",
+        "Marksman"
+      ]
+    ],
+    "addr": "14 Clover Demo St",
+    "city": "Urbandale",
+    "st": "IA",
+    "zip": "50323",
+    "phone": "515-555-0124",
+    "email": "annie.granger@example.com"
+  },
+  {
+    "rank": "MSG",
+    "last": "HOWARD",
+    "first": "DEANDRE",
+    "mid": "LEON",
+    "rel": "DB",
+    "job": "E56M",
+    "dor": "2023-01-01",
+    "uic": "HHC",
+    "asi": "2S",
+    "smos": "",
+    "diems": "2005-06-01",
+    "ets": "2028-06-01",
+    "mrd": null,
+    "ed_recent": "Master Leader Course",
+    "ed_stat": "Complete",
+    "mel": "MLC",
+    "eval": "2026-01-30",
+    "ret": "2026-06-01",
+    "aft": [
+      "Passed",
+      "2026-07-18"
+    ],
+    "wpn": [
+      "Expert",
+      "2025-06-01"
+    ],
+    "pft_hist": [
+      [
+        "2025-01-16",
+        "Passed"
+      ],
+      [
+        "2025-07-17",
+        "Passed"
+      ]
+    ],
+    "wpn_hist": [
+      [
+        "2023-06-01",
+        "Expert"
+      ],
+      [
+        "2024-06-01",
+        "Expert"
+      ]
+    ],
+    "addr": "99 Beacon Test Ave",
+    "city": "Des Moines",
+    "st": "IA",
+    "zip": "50314",
+    "phone": "515-555-0125",
+    "email": "deandre.howard@example.com"
+  },
+  {
+    "rank": "SSG",
+    "last": "ELLIS",
+    "first": "MEGAN",
+    "mid": "JOY",
+    "rel": "08",
+    "job": "E56M",
+    "dor": "2024-07-01",
+    "uic": "BSB",
+    "asi": "",
+    "smos": "",
+    "diems": "2015-09-09",
+    "ets": "2029-09-09",
+    "mrd": null,
+    "ed_recent": "Advanced Leader Course",
+    "ed_stat": "Complete",
+    "mel": "ALC",
+    "eval": "2026-06-25",
+    "ret": "2035-09-09",
+    "aft": [
+      "Passed",
+      "2026-08-05"
+    ],
+    "wpn": [
+      "Expert",
+      "2026-06-20"
+    ],
+    "pft_hist": [
+      [
+        "2025-02-05",
+        "Passed"
+      ],
+      [
+        "2025-08-06",
+        "Passed"
+      ]
+    ],
+    "wpn_hist": [
+      [
+        "2025-06-19",
+        "Sharpshooter"
+      ]
+    ],
+    "addr": "310 Summerfield Sample Dr",
+    "city": "Clive",
+    "st": "IA",
+    "zip": "50325",
+    "phone": "515-555-0126",
+    "email": "megan.ellis@example.com"
+  },
+  {
+    "rank": "SGT",
+    "last": "BARLOW",
+    "first": "PETER",
+    "mid": "HUGH",
+    "rel": "75",
+    "job": "E56M",
+    "dor": "2023-09-01",
+    "uic": "CAV",
+    "asi": "",
+    "smos": "",
+    "diems": "2017-12-12",
+    "ets": "2029-12-12",
+    "mrd": null,
+    "ed_recent": "Basic Leader Course",
+    "ed_stat": "Complete",
+    "mel": "BLC",
+    "eval": "2025-05-15",
+    "ret": "2037-12-12",
+    "aft": [
+      "Failed",
+      "2026-09-29"
+    ],
+    "wpn": [
+      "Marksman",
+      "2026-01-14"
+    ],
+    "pft_hist": [
+      [
+        "2025-03-29",
+        "Passed"
+      ],
+      [
+        "2025-09-28",
+        "Passed"
+      ]
+    ],
+    "wpn_hist": [
+      [
+        "2025-01-13",
+        "Marksman"
+      ]
+    ],
+    "addr": "6 Whispering Sample Glen",
+    "city": "Grimes",
+    "st": "IA",
+    "zip": "50111",
+    "phone": "515-555-0127",
+    "email": "peter.barlow@example.com"
+  },
+  {
+    "rank": "SPC",
+    "last": "INGRAM",
+    "first": "RUTH",
+    "mid": "ELLEN",
+    "rel": "02",
+    "job": "E56M",
+    "dor": "2025-03-01",
+    "uic": "IN",
+    "asi": "",
+    "smos": "",
+    "diems": "2024-03-01",
+    "ets": "2028-03-01",
+    "mrd": null,
+    "ed_recent": "Religious Affairs Specialist AIT",
+    "ed_stat": "Complete",
+    "mel": "AIT",
+    "eval": "2026-02-28",
+    "ret": null,
+    "aft": [
+      "Passed",
+      "2026-09-26"
+    ],
+    "wpn": [
+      "Sharpshooter",
+      "2026-08-28"
+    ],
+    "pft_hist": [
+      [
+        "2026-03-26",
+        "Passed"
+      ]
+    ],
+    "wpn_hist": [],
+    "addr": "111 Orchard Demo Pl",
+    "city": "Indianola",
+    "st": "IA",
+    "zip": "50125",
+    "phone": "515-555-0128",
+    "email": "ruth.ingram@example.com"
+  },
+  {
+    "rank": "SFC",
+    "last": "NADIR",
+    "first": "SAMIRA",
+    "mid": "HASSAN",
+    "rel": "48",
+    "job": "E56M",
+    "dor": "2021-12-01",
+    "uic": "AV",
+    "asi": "",
+    "smos": "",
+    "diems": "2010-04-18",
+    "ets": "2027-06-30",
+    "mrd": null,
+    "ed_recent": "Senior Leader Course",
+    "ed_stat": "Complete",
+    "mel": "SLC",
+    "eval": "2026-05-12",
+    "ret": "2030-04-18",
+    "aft": [
+      "Passed",
+      "2026-07-30"
+    ],
+    "wpn": [
+      "Expert",
+      "2026-03-18"
+    ],
+    "pft_hist": [
+      [
+        "2025-01-29",
+        "Passed"
+      ],
+      [
+        "2025-07-29",
+        "Passed"
+      ]
+    ],
+    "wpn_hist": [
+      [
+        "2024-03-17",
+        "Expert"
+      ],
+      [
+        "2025-03-19",
+        "Expert"
+      ]
+    ],
+    "addr": "80 Crescent Moon Test Dr",
+    "city": "West Des Moines",
+    "st": "IA",
+    "zip": "50266",
+    "phone": "515-555-0129",
+    "email": "samira.nadir@example.com"
+  },
+  {
+    "rank": "1SG",
+    "last": "WALKER",
+    "first": "THOMAS",
+    "mid": "GLENN",
+    "rel": "08",
+    "job": "E56M",
+    "dor": "2021-03-01",
+    "uic": "BSB",
+    "asi": "",
+    "smos": "11B",
+    "diems": "2004-01-15",
+    "ets": "2028-01-15",
+    "mrd": null,
+    "ed_recent": "Master Leader Course",
+    "ed_stat": "Complete",
+    "mel": "MLC",
+    "eval": "2026-03-03",
+    "ret": "2027-01-15",
+    "aft": [
+      "Passed",
+      "2026-08-17"
+    ],
+    "wpn": [
+      "Expert",
+      "2026-04-22"
+    ],
+    "pft_hist": [
+      [
+        "2025-02-16",
+        "Passed"
+      ],
+      [
+        "2025-08-16",
+        "Passed"
+      ]
+    ],
+    "wpn_hist": [
+      [
+        "2024-04-21",
+        "Expert"
+      ],
+      [
+        "2025-04-23",
+        "Sharpshooter"
+      ]
+    ],
+    "no_address": true
+  }
+]
